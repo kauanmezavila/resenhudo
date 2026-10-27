@@ -1,0 +1,14 @@
+<div align="center">
+  <h1>Resenhudo</h1>
+  <p>O bot mais resenha do Brasil no seu discord!</p>
+  <p><b>v0.0.1: Aprendiz da resenha</b></p>
+</div>
+
+## O que é?
+
+Resenhudo, é o bot mestre da resenha; não importa a situação, ele estará lá pronto para fazer os membros rirem!
+
+## Resenhas disponíveis
+
+- 67 trigger: algum membro disse "67"? O resenhudo está aguardando com um gif na mão...
+- Resenha trigger: citaram resenha? O resenhudo vai averiguar!
