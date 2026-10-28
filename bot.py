@@ -32,6 +32,11 @@ async def on_ready():
         name="A resenha já ta on?"
     )
 
+    await bot.change_presence(
+        status=discord.Status.online,
+        activity=activity
+    )
+
     print(f"{bot.user} ACORDOU")
 
 
