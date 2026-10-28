@@ -1,133 +1,192 @@
 import os
 import random
+import logging
+from pathlib import Path
+
 import discord
 from dotenv import load_dotenv
 from discord import app_commands
 from discord.ext import commands
 
 from server import webStart
+from triggers import (
+    SIX_SEVEN_TRIGGERS,
+    RESENHA_TRIGGERS,
+    CEMPILA_TRIGGERS,
+)
+from gifs import (
+    GIFS_67,
+    GIFS_RESENHA,
+)
+from data import (
+    EPISODIOS_RESENHA,
+    FILMES_RESENHA,
+)
 
-from triggers import *
-from gifs import *
-from data import *
-
-class Bot(commands.Bot):
-    async def setup_hook(self):
-        await self.tree.sync()
 
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
-webStart()
+
+BASE_DIR = Path(__file__).resolve().parent
+VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+
+logger = logging.getLogger("resenhudo")
+
+
+class Bot(commands.Bot):
+    async def setup_hook(self):
+        await self.tree.sync()
+        logger.info("Comandos de barra sincronizados.")
+
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = Bot(command_prefix="!", intents=intents)
+bot = Bot(
+    command_prefix="!",
+    intents=intents,
+)
 
 
 @bot.event
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="O Mentalista"
+        name="O Mentalista",
     )
 
     await bot.change_presence(
         status=discord.Status.online,
-        activity=activity
+        activity=activity,
     )
 
-    print(f"{bot.user} ACORDOU")
+    logger.info("%s ACORDOU", bot.user)
 
 
 @bot.event
-async def on_message(message):
+async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
     texto = message.content.lower()
 
-    if any(trigger in texto for trigger in SIX_SEVEN_TRIGGERS):
-        if random.random() < 0.85:
-            gif = random.choice(GIFS_67)
-            await message.reply(gif)
+    try:
+        if any(trigger.lower() in texto for trigger in SIX_SEVEN_TRIGGERS):
+            if random.random() < 0.85 and GIFS_67:
+                await message.reply(random.choice(GIFS_67))
 
-    if any(trigger in texto for trigger in RESENHA_TRIGGERS):
-        if random.random() < 0.85:
-            gif = random.choice(GIFS_RESENHA)
-            await message.reply(gif)
+        elif any(trigger.lower() in texto for trigger in RESENHA_TRIGGERS):
+            if random.random() < 0.85 and GIFS_RESENHA:
+                await message.reply(random.choice(GIFS_RESENHA))
 
-    if any(trigger in texto for trigger in CEMPILA_TRIGGERS):
-        if random.random() < 0.85:
-            video = "media/100Reais????.mp4"
-            await message.reply(video)
+        elif any(trigger.lower() in texto for trigger in CEMPILA_TRIGGERS):
+            if random.random() < 0.85:
+                if VIDEO_PATH.is_file():
+                    await message.reply(
+                        file=discord.File(str(VIDEO_PATH))
+                    )
+                else:
+                    logger.error(
+                        "Vídeo não encontrado: %s",
+                        VIDEO_PATH,
+                    )
 
-    await bot.process_commands(message)
+    except discord.HTTPException:
+        logger.exception("Erro ao responder à mensagem.")
+
+    finally:
+        await bot.process_commands(message)
+
 
 @bot.tree.command(
     name="ping",
-    description="Verifica a latência do bot"
+    description="Verifica a latência do bot",
 )
 async def ping(interaction: discord.Interaction):
     ms = round(bot.latency * 1000)
 
     await interaction.response.send_message(
         f"🏓 Pong! Latência: {ms} ms",
-        ephemeral=True
+        ephemeral=True,
     )
-
-@bot.tree.command(name="serie", description="Sorteia um episódio resenha")
-async def serie(interaction: discord.Interaction):
-    def sortear_episodio():
-        serie, temporada, episodio, titulo, nota = random.choice(
-            EPISODIOS_RESENHA
-        )
-
-        return (
-            f"🎬 **{serie}**\n"
-            f"📺 Temporada {temporada}, episódio {episodio}\n"
-            f"🎞️ **{titulo}**\n"
-            f"⭐ Nota da curadoria: {nota}/10"
-        )
-
-    await interaction.response.send_message(sortear_episodio())
 
 
 @bot.tree.command(
-    name="filme",
-    description="Sorteia um filme ABSOLUTE CINEMA"
+    name="serie",
+    description="Sorteia um episódio resenha",
 )
-@app_commands.describe(categoria="Gênero do filme (opcional)")
+async def serie(interaction: discord.Interaction):
+    if not EPISODIOS_RESENHA:
+        await interaction.response.send_message(
+            "Não há episódios cadastrados.",
+            ephemeral=True,
+        )
+        return
+
+    serie_nome, temporada, episodio, titulo, nota = random.choice(
+        EPISODIOS_RESENHA
+    )
+
+    resposta = (
+        f"🎬 **{serie_nome}**\n"
+        f"📺 Temporada {temporada}, episódio {episodio}\n"
+        f"🎞️ **{titulo}**\n"
+        f"⭐ Nota da curadoria: {nota}/10"
+    )
+
+    await interaction.response.send_message(resposta)
+
+@bot.tree.command(
+    name="filme",
+    description="Sorteia um filme ABSOLUTE CINEMA",
+)
+@app_commands.describe(
+    categoria="Gênero do filme (opcional)",
+)
 async def filme(
     interaction: discord.Interaction,
-    categoria: str | None = None
+    categoria: str | None = None,
 ):
     filmes = FILMES_RESENHA
 
     if categoria:
+        categoria = categoria.strip().casefold()
+
         filmes = [
-            item for item in FILMES_RESENHA
-            if item[2].casefold() == categoria.strip().casefold()
+            item
+            for item in FILMES_RESENHA
+            if item[2].casefold() == categoria
         ]
 
     if not filmes:
         await interaction.response.send_message(
             "🎬 Não encontrei filmes nessa categoria.",
-            ephemeral=True
+            ephemeral=True,
         )
         return
 
     titulo, ano, genero, nota = random.choice(filmes)
 
-    await interaction.response.send_message(
+    resposta = (
         f"🎬 **{titulo} ({ano})**\n"
         f"🎭 Gênero: {genero}\n"
         f"⭐ Nota da curadoria: {nota}/10"
     )
 
+    await interaction.response.send_message(resposta)
 
-if TOKEN:
-    bot.run(TOKEN)
-else:
-    print("[DEV] Arquivo carregado, Token faltando")
+if __name__ == "__main__":
+    webStart()
+
+    if TOKEN:
+        bot.run(TOKEN)
+    else:
+        logger.warning(
+            "[DEV] Arquivo carregado, token ausente."
+        )
