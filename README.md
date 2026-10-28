@@ -14,8 +14,12 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 
 ## Resenhas disponíveis
 
-- 67 trigger: algum membro disse "67"? O resenhudo está aguardando com um gif na mão...
-- Resenha trigger: citaram resenha? O resenhudo vai averiguar!
+| Tipo    | Nome    | Ação                                                    |
+| ------- | ------- | ------------------------------------------------------- |
+| Trigger | 67      | Responde mensagens relacionadas a 67 como um gif        |
+| Trigger | Resenha | Responde mensagens relacionadas a 'resenha' como um gif |
+| Comando | /filme  | Procura filmes com ou sem gênero pré-definido           |
+| Comando | /series | Procura séries com ou sem gẽnero pré-definido           |
 
 ## Arquitetura
 

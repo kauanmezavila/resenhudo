@@ -9,6 +9,7 @@ from server import webStart
 
 from triggers import *
 from gifs import *
+from data import *
 
 class Bot(commands.Bot):
     async def setup_hook(self):
@@ -29,7 +30,7 @@ bot = Bot(command_prefix="!", intents=intents)
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="A resenha já ta on?"
+        name="O Mentalista"
     )
 
     await bot.change_presence(
@@ -70,6 +71,47 @@ async def ping(interaction: discord.Interaction):
         f"🏓 Pong! Latência: {ms} ms",
         ephemeral=True
     )
+
+@bot.tree.command(name="serie", description="Sorteia um episódio resenha")
+async def serie(interaction: discord.Interaction):
+    def sortear_episodio():
+        serie, temporada, episodio, titulo, nota = random.choice(
+            EPISODIOS_RESENHA
+        )
+
+        return (
+            f"🎬 **{serie}**\n"
+            f"📺 Temporada {temporada}, episódio {episodio}\n"
+            f"🎞️ **{titulo}**\n"
+            f"⭐ Nota da curadoria: {nota}/10"
+        )
+
+    await interaction.response.send_message(sortear_episodio())
+
+@bot.tree.command(name="filme", description="Sorteia um filme ABSOLUTE CINEMA")
+@app_commands.describe(categoria="Gênero do filme")
+async def filme(interaction: discord.Interaction, categoria = None):
+    def sortear_filme(categoria=None):
+        filmes = FILMES_RESENHA
+
+        if categoria:
+            filmes = [
+                filme for filme in FILMES_RESENHA
+                if filme[2].casefold() == categoria.casefold()
+            ]
+
+        if not filmes:
+            return "Não encontrei filmes nessa categoria."
+
+        titulo, ano, genero, nota = random.choice(filmes)
+
+        return (
+            f"🎬 **{titulo} ({ano})**\n"
+            f"🎭 Gênero: {genero}\n"
+            f"⭐ Nota da curadoria: {nota}/10"
+        )
+
+    await interaction.response.send_message(sortear_filme(categoria))
 
 
 if TOKEN:
