@@ -67,3 +67,12 @@ RESENHA_TRIGGERS = [
     "resenha?",
     "Resenha?",
 ]
+
+CEMPILA_TRIGGERS = [
+    "100 reais",
+    "100 conto",
+    "100 pila",
+    "cem reais",
+    "cem conto",
+    "cem pila",
+]

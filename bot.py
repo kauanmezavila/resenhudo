@@ -58,6 +58,11 @@ async def on_message(message):
             gif = random.choice(GIFS_RESENHA)
             await message.reply(gif)
 
+    if any(trigger in texto for trigger in CEMPILA_TRIGGERS):
+        if random.random() < 0.85:
+            video = "media/100Reais????.mp4"
+            await message.reply(video)
+
     await bot.process_commands(message)
 
 @bot.tree.command(
