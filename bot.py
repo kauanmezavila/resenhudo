@@ -88,30 +88,38 @@ async def serie(interaction: discord.Interaction):
 
     await interaction.response.send_message(sortear_episodio())
 
-@bot.tree.command(name="filme", description="Sorteia um filme ABSOLUTE CINEMA")
-@app_commands.describe(categoria="Gênero do filme")
-async def filme(interaction: discord.Interaction, categoria = None):
-    def sortear_filme(categoria=None):
-        filmes = FILMES_RESENHA
 
-        if categoria:
-            filmes = [
-                filme for filme in FILMES_RESENHA
-                if filme[2].casefold() == categoria.casefold()
-            ]
+@bot.tree.command(
+    name="filme",
+    description="Sorteia um filme ABSOLUTE CINEMA"
+)
+@app_commands.describe(categoria="Gênero do filme (opcional)")
+async def filme(
+    interaction: discord.Interaction,
+    categoria: str | None = None
+):
+    filmes = FILMES_RESENHA
 
-        if not filmes:
-            return "Não encontrei filmes nessa categoria."
+    if categoria:
+        filmes = [
+            item for item in FILMES_RESENHA
+            if item[2].casefold() == categoria.strip().casefold()
+        ]
 
-        titulo, ano, genero, nota = random.choice(filmes)
-
-        return (
-            f"🎬 **{titulo} ({ano})**\n"
-            f"🎭 Gênero: {genero}\n"
-            f"⭐ Nota da curadoria: {nota}/10"
+    if not filmes:
+        await interaction.response.send_message(
+            "🎬 Não encontrei filmes nessa categoria.",
+            ephemeral=True
         )
+        return
 
-    await interaction.response.send_message(sortear_filme(categoria))
+    titulo, ano, genero, nota = random.choice(filmes)
+
+    await interaction.response.send_message(
+        f"🎬 **{titulo} ({ano})**\n"
+        f"🎭 Gênero: {genero}\n"
+        f"⭐ Nota da curadoria: {nota}/10"
+    )
 
 
 if TOKEN:

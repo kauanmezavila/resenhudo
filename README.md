@@ -25,7 +25,8 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 
 O bot utiliza o framework discord.py, além disso, o código utiliza de uma infraestrutura modular, aonde ações do bot estão em [bot.py](https://github.com/kauanmezavila/resenhudo/blob/main/bot.py), os triggers para ações em [triggers.py](https://github.com/kauanmezavila/resenhudo/blob/main/triggers.py), e os gifs em [gifs.py](https://github.com/kauanmezavila/resenhudo/blob/main/gifs.py)
 
-**Como o bot fica on 24/7 no Render gratuito?**
+### **Como o bot fica on 24/7 no Render gratuito?**
+
 Um guiazinho pra você amigo indie hacker sem dinheiro (igual eu):
 
 1. Crie uma rota no seu bot /health
