@@ -29,7 +29,8 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 
 BASE_DIR = Path(__file__).resolve().parent
-VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
+CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
+SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -39,10 +40,11 @@ logging.basicConfig(
 logger = logging.getLogger("resenhudo")
 
 
+
 class Bot(commands.Bot):
     async def setup_hook(self):
         await self.tree.sync()
-        logger.info("Comandos de barra sincronizados.")
+        logger.info("Slash commands sincronizados")
 
 
 intents = discord.Intents.default()
@@ -77,32 +79,44 @@ async def on_message(message: discord.Message):
     texto = message.content.lower()
 
     try:
-        if any(trigger.lower() in texto for trigger in SIX_SEVEN_TRIGGERS):
+        if any(
+            trigger.lower() in texto
+            for trigger in SIX_SEVEN_TRIGGERS
+        ):
             if random.random() < 0.85 and GIFS_67:
                 await message.reply(random.choice(GIFS_67))
 
-        elif any(trigger.lower() in texto for trigger in RESENHA_TRIGGERS):
+        elif any(
+            trigger.lower() in texto
+            for trigger in RESENHA_TRIGGERS
+        ):
             if random.random() < 0.85 and GIFS_RESENHA:
                 await message.reply(random.choice(GIFS_RESENHA))
 
-        elif any(trigger.lower() in texto for trigger in CEMPILA_TRIGGERS):
+        elif any(
+            trigger.lower() in texto
+            for trigger in CEMPILA_TRIGGERS
+        ):
             if random.random() < 0.85:
-                if VIDEO_PATH.is_file():
+                if CEMPILA_VIDEO_PATH.is_file():
                     await message.reply(
-                        file=discord.File(str(VIDEO_PATH))
+                        file=discord.File(
+                            str(CEMPILA_VIDEO_PATH)
+                        )
                     )
                 else:
                     logger.error(
                         "Vídeo não encontrado: %s",
-                        VIDEO_PATH,
+                        CEMPILA_VIDEO_PATH,
                     )
 
     except discord.HTTPException:
-        logger.exception("Erro ao responder à mensagem.")
+        logger.exception(
+            "Erro ao responder à mensagem."
+        )
 
     finally:
         await bot.process_commands(message)
-
 
 @bot.tree.command(
     name="ping",
@@ -129,8 +143,8 @@ async def serie(interaction: discord.Interaction):
         )
         return
 
-    serie_nome, temporada, episodio, titulo, nota = random.choice(
-        EPISODIOS_RESENHA
+    serie_nome, temporada, episodio, titulo, nota = (
+        random.choice(EPISODIOS_RESENHA)
     )
 
     resposta = (
@@ -141,6 +155,58 @@ async def serie(interaction: discord.Interaction):
     )
 
     await interaction.response.send_message(resposta)
+
+
+@bot.tree.command(
+    name="sofrer",
+    description="Sofra por amor escutando o Periclão",
+)
+@app_commands.describe(
+    user="Quem tá na sofrência por amor",
+)
+async def sofrer(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    if not SOFRER_MUSIC.is_file():
+        logger.error(
+            "Música não encontrada: %s",
+            SOFRER_MUSIC,
+        )
+
+        await interaction.response.send_message(
+            "❌ A música não foi encontrada.",
+            ephemeral=True,
+        )
+        return
+
+    alvo = user or interaction.user
+
+    resposta = (
+        f"💔 {alvo.mention}, chegou a hora da sofrência!\n"
+        "🎶 **Até Que Durou — Periclão**"
+    )
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+            file=discord.File(
+                str(SOFRER_MUSIC),
+                filename="ate-que-durou.mp3",
+            ),
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao enviar a música no comando /sofrer."
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui enviar a música. "
+                "Verifique o tamanho do arquivo e os limites do Discord.",
+                ephemeral=True,
+            )
+
 
 @bot.tree.command(
     name="filme",
@@ -156,12 +222,12 @@ async def filme(
     filmes = FILMES_RESENHA
 
     if categoria:
-        categoria = categoria.strip().casefold()
+        categoria_normalizada = categoria.strip().casefold()
 
         filmes = [
             item
             for item in FILMES_RESENHA
-            if item[2].casefold() == categoria
+            if item[2].casefold() == categoria_normalizada
         ]
 
     if not filmes:
@@ -181,10 +247,11 @@ async def filme(
 
     await interaction.response.send_message(resposta)
 
-if __name__ == "__main__":
-    webStart()
 
+
+if __name__ == "__main__":
     if TOKEN:
+        webStart()
         bot.run(TOKEN)
     else:
         logger.warning(
