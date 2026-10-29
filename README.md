@@ -24,6 +24,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /sofrer   | Toca uma do periclão, pode marcar alguém                         |
 | Comando | /filme    | Aleatoriza um filme                                              |
 | Comando | /series   | Aleatoriza uma série                                             |
+| Comando | /luck     | Aleatoriza uma frase                                             |
 
 ## Arquitetura
 

@@ -1,6 +1,7 @@
 import os
 import random
 import logging
+import requests
 from pathlib import Path
 
 import discord
@@ -136,6 +137,35 @@ async def ping(interaction: discord.Interaction):
 
     await interaction.response.send_message(
         f"🏓 Pong! Latência: {ms} ms",
+        ephemeral=True,
+    )
+
+@bot.tree.command(
+    name="luck",
+    description="Frase aleatória",
+)
+async def luck(interaction: discord.Interaction):
+    def fortune():
+        url = "https://dumbapis.com/fortune"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["fortune"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    texto = f"""**Uma frase, para VOCÊ**
+> {fortune()}
+"""
+    
+    await interaction.response.send_message(
+        texto,
         ephemeral=True,
     )
 
