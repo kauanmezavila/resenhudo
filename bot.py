@@ -51,7 +51,7 @@ bot = Bot(
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="Sou OpenSource!: https://github.com/kauanmezavila/resenhudo",
+        name="https://kmlresearchlabs.vercel.app/resenhudo",
     )
 
     await bot.change_presence(
