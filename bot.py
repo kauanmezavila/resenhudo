@@ -183,7 +183,7 @@ async def sofrer(
     alvo = user or interaction.user
 
     resposta = (
-        f"💔 {alvo.mention}, chegou a hora da sofrência!\n"
+        f"💔 {alvo.mention}, o bar te espera :fist::pensive::tumbler_glass:\n"
         "🎶 **Até Que Durou — Periclão**"
     )
 

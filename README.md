@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Resenhudo</h1>
   <p>O bot mais resenha do Brasil no seu discord!</p>
-  <p><b>v0.0.1: Aprendiz da resenha</b></p>
+  <p><b>v0.0.2: Apreciador da resenha</b></p>
 </div>
 
 ## O que é?
@@ -14,12 +14,14 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 
 ## Resenhas disponíveis
 
-| Tipo    | Nome    | Ação                                                    |
-| ------- | ------- | ------------------------------------------------------- |
-| Trigger | 67      | Responde mensagens relacionadas a 67 como um gif        |
-| Trigger | Resenha | Responde mensagens relacionadas a 'resenha' como um gif |
-| Comando | /filme  | Procura filmes com ou sem gênero pré-definido           |
-| Comando | /series | Procura séries com ou sem gẽnero pré-definido           |
+| Tipo    | Nome      | Ação                                                       |
+| ------- | --------- | ---------------------------------------------------------- |
+| Trigger | 67        | Responde mensagens relacionadas a 67 com um gif            |
+| Trigger | Resenha   | Responde mensagens relacionadas a 'resenha' com um gif     |
+| Trigger | Cem reais | Responde mensagens relacionadas a '100 reais' com um vídeo |
+| Comando | /sofrer   | Toca uma do periclão, pode marcar alguém                   |
+| Comando | /filme    | Aleatoriza um filme                                        |
+| Comando | /series   | Aleatoriza uma série                                       |
 
 ## Arquitetura
 
