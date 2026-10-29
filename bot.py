@@ -9,19 +9,9 @@ from discord import app_commands
 from discord.ext import commands
 
 from server import webStart
-from triggers import (
-    SIX_SEVEN_TRIGGERS,
-    RESENHA_TRIGGERS,
-    CEMPILA_TRIGGERS,
-)
-from gifs import (
-    GIFS_67,
-    GIFS_RESENHA,
-)
-from data import (
-    EPISODIOS_RESENHA,
-    FILMES_RESENHA,
-)
+from triggers import *
+from gifs import *
+from data import *
 
 
 load_dotenv()
@@ -31,6 +21,7 @@ TOKEN = os.getenv("TOKEN")
 BASE_DIR = Path(__file__).resolve().parent
 CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
 SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
+JE_MUSIC = BASE_DIR / "media" / "je.wav"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -60,7 +51,7 @@ bot = Bot(
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="O Mentalista",
+        name="Sou OpenSource!: https://github.com/kauanmezavila/resenhudo",
     )
 
     await bot.change_presence(
@@ -110,9 +101,27 @@ async def on_message(message: discord.Message):
                         CEMPILA_VIDEO_PATH,
                     )
 
+        elif any(
+            trigger.lower() in texto
+            for trigger in JE_TRIGGERS
+        ):
+            if random.random() < 0.85:
+                if JE_MUSIC.is_file():
+                    await message.reply(
+                        file=discord.File(
+                            str(JE_MUSIC)
+                        )
+                    )
+                else:
+                    logger.error(
+                        "Vídeo não encontrado: %s",
+                        JE_MUSIC,
+                    )
+            
+
     except discord.HTTPException:
         logger.exception(
-            "Erro ao responder à mensagem."
+            "Calma rapaziada, deu red aqui."
         )
 
     finally:

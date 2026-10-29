@@ -76,3 +76,9 @@ CEMPILA_TRIGGERS = [
     "cem conto",
     "cem pila",
 ]
+
+JE_TRIGGERS = [
+    "jeffrey",
+    "epstein",
+    "jeffrey epstein"
+]
