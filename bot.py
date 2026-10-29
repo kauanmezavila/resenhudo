@@ -51,7 +51,7 @@ bot = Bot(
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="https://kmlresearchlabs.vercel.app/resenhudo",
+        name="Sou OpenSource! https://kmlresearchlabs.vercel.app/resenhudo",
     )
 
     await bot.change_presence(
@@ -136,6 +136,29 @@ async def ping(interaction: discord.Interaction):
 
     await interaction.response.send_message(
         f"🏓 Pong! Latência: {ms} ms",
+        ephemeral=True,
+    )
+
+@bot.tree.command(
+    name="info",
+    description="Infos do bot",
+)
+async def info(interaction: discord.Interaction):
+
+    texto = """**Resenhudo**
+O Bot mais RESENHA do Brasil
+
+- Maintainer: ByKurebo
+[https://github.com/kauanmezavila]
+
+- Sou OPEN SOURCE!
+[https://kmlresearchlabs.vercel.app/resenhudo]
+
+Powered by KML Research Labs
+    """
+
+    await interaction.response.send_message(
+        texto,
         ephemeral=True,
     )
 
