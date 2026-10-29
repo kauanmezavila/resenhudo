@@ -160,6 +160,7 @@ Powered by KML Research Labs
     await interaction.response.send_message(
         texto,
         ephemeral=True,
+        suppress_embeds=True,
     )
 
 

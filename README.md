@@ -11,7 +11,7 @@ Resenhudo, é o bot mestre da resenha; não importa a situação, ele estará l�
 
 ## Instalação
 
-Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?client_id=1564434767179686079&permissions=68608&integration_type=0&scope=bot+applications.commands)
+Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?client_id=1564434767179686079&permissions=125952&integration_type=0&scope=bot)
 
 ## Resenhas disponíveis
 
