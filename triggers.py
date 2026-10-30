@@ -82,3 +82,8 @@ JE_TRIGGERS = [
     "epstein",
     "jeffrey epstein"
 ]
+
+DEVAGAR_TRIGGERS = [
+    "devagar",
+    "devagar pai"
+]

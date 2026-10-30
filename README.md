@@ -15,16 +15,17 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 
 ## Resenhas disponíveis
 
-| Tipo    | Nome      | Ação                                                             |
-| ------- | --------- | ---------------------------------------------------------------- |
-| Trigger | 67        | Responde mensagens relacionadas a 67 com um gif                  |
-| Trigger | Resenha   | Responde mensagens relacionadas a 'resenha' com um gif           |
-| Trigger | Cem reais | Responde mensagens relacionadas a '100 reais' com um vídeo       |
-| Trigger | JE        | Responde mensagens relacionadas a Jeffrey Epstein com uma música |
-| Comando | /sofrer   | Toca uma do periclão, pode marcar alguém                         |
-| Comando | /filme    | Aleatoriza um filme                                              |
-| Comando | /series   | Aleatoriza uma série                                             |
-| Comando | /luck     | Aleatoriza uma frase                                             |
+| Tipo    | Nome        | Ação                                                             |
+| ------- | ----------- | ---------------------------------------------------------------- |
+| Trigger | 67          | Responde mensagens relacionadas a 67 com um gif                  |
+| Trigger | Resenha     | Responde mensagens relacionadas a 'resenha' com um gif           |
+| Trigger | Cem reais   | Responde mensagens relacionadas a '100 reais' com um vídeo       |
+| Trigger | JE          | Responde mensagens relacionadas a Jeffrey Epstein com uma música |
+| Trigger | Devagar Pai | Responde mensagens relacionadas a 'devagar' com um vídeo         |
+| Comando | /sofrer     | Toca uma do periclão, pode marcar alguém                         |
+| Comando | /filme      | Aleatoriza um filme                                              |
+| Comando | /series     | Aleatoriza uma série                                             |
+| Comando | /luck       | Aleatoriza uma frase                                             |
 
 ## Arquitetura
 

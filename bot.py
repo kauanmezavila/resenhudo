@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent
 CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
 SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
 JE_MUSIC = BASE_DIR / "media" / "je.wav"
+DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -115,8 +116,26 @@ async def on_message(message: discord.Message):
                     )
                 else:
                     logger.error(
-                        "Vídeo não encontrado: %s",
+                        "Áudio não encontrado: %s",
                         JE_MUSIC,
+                    )
+
+        
+        elif any(
+            trigger.lower() in texto
+            for trigger in DEVAGAR_TRIGGERS
+        ):
+            if random.random() < 0.85:
+                if DEVAGAR_VIDEO.is_file():
+                    await message.reply(
+                        file=discord.File(
+                            str(DEVAGAR_VIDEO)
+                        )
+                    )
+                else:
+                    logger.error(
+                        "Vídeo não encontrado: %s",
+                        DEVAGAR_VIDEO,
                     )
             
 
