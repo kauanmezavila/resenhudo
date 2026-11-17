@@ -22,6 +22,8 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Trigger | Cem reais    | Responde mensagens relacionadas a '100 reais' com um vídeo       |
 | Trigger | JE           | Responde mensagens relacionadas a Jeffrey Epstein com uma música |
 | Trigger | Devagar Pai  | Responde mensagens relacionadas a 'devagar' com um vídeo         |
+| Trigger | Entrosa      | Responde mensagens relacionadas a 'entrosa' com uma imagem       |
+| Trigger | Larp         | Responde mensagens relacionadas a 'larp' com uma image,          |
 | Comando | /sofrer      | Toca uma do periclão, pode marcar alguém                         |
 | Comando | /filme       | Aleatoriza um filme                                              |
 | Comando | /series      | Aleatoriza uma série                                             |
@@ -31,6 +33,10 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /gado        | Avalia quão gado alguém é                                        |
 | Comando | /skill-issue | Avalia se foi skill-issue                                        |
 | Comando | /fofoca      | Conta uma fofoca                                                 |
+| Comando | /trending    | Puxa os 10 melhores repos do Github                              |
+| Comando | /entrosa     | Uma arma contra os entrosas                                      |
+| Comando | /larp        | Larpe alguém                                                     |
+| Comando | /avaliar     | Avalia quão resenha algo é                                       |
 
 ## Arquitetura
 
