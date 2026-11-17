@@ -10,6 +10,8 @@ from discord import app_commands
 from discord.ext import commands, tasks
 import itertools
 
+from database import init_db, get_guild_config
+
 from server import webStart
 from triggers import *
 from gifs import *
@@ -41,6 +43,8 @@ logger = logging.getLogger("resenhudo")
 
 class Bot(commands.Bot):
     async def setup_hook(self):
+        init_db()
+        await self.load_extension("config")
         await self.tree.sync()
         logger.info("Slash commands sincronizados")
 
@@ -72,6 +76,33 @@ async def on_ready():
 
 
     logger.info("%s ACORDOU", bot.user)
+
+@bot.event
+async def on_member_join(member):
+
+    channel = bot.get_channel(123456789012345678)
+
+    if channel is None:
+        logger.warning("Canal de boas-vindas não encontrado para a guild %s", member.guild.id)
+        return
+
+    if not isinstance(channel, discord.abc.Messageable):
+        logger.warning("Canal %s não é uma mensagem válida para enviar boas-vindas", channel.id)
+        return
+
+    embed = discord.Embed(
+        title="🎉 Novo membro!",
+        description=f"Seja bem-vindo(a), {member.mention}!\nEsperamos que goste da comunidade!",
+        color=discord.Color.blurple()
+    )
+
+    embed.set_thumbnail(url=member.display_avatar.url)
+
+    embed.set_footer(
+        text=f"Agora somos {member.guild.member_count} membros!"
+    )
+
+    await channel.send(embed=embed)
 
 
 @bot.event
