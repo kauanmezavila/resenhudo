@@ -24,6 +24,7 @@ CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
 SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
 JE_MUSIC = BASE_DIR / "media" / "je.wav"
 DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
+TORFIN_MUSIC = BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -289,6 +290,86 @@ async def sofrer(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="enemys",
+    description="Você não tem inimigos Thorfinn",
+)
+@app_commands.describe(
+    user="Quem não tem inimigos",
+)
+async def enemys(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    if not TORFIN_MUSIC.is_file():
+        logger.error(
+            "Música não encontrada: %s",
+            TORFIN_MUSIC,
+        )
+
+        await interaction.response.send_message(
+            "❌ A música não foi encontrada.",
+            ephemeral=True,
+        )
+        return
+
+    alvo = user or interaction.user
+
+    resposta = (
+        f"{alvo.mention}, você não tem inimigos...\n"
+        "🎶 **Aruarian Dance — Nujabes**"
+    )
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+            file=discord.File(
+                str(TORFIN_MUSIC),
+                filename="Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3",
+            ),
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao enviar a música no comando /enemys."
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui enviar a música. "
+                "Verifique o tamanho do arquivo e os limites do Discord.",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="roast",
+    description="Aquela zoada básica",
+)
+@app_commands.describe(
+    user="Quem vai ser zoado",
+)
+async def roast(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    resposta = (alvo.mention + " " + random.choice(ZUADAS))
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao tentar zuar ele"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui zuar ele"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
 
 @bot.tree.command(
     name="filme",

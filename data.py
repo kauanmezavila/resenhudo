@@ -204,3 +204,10 @@ FILMES_RESENHA = [
     ("The Nice Guys", 2016, "comédia", 8.9),
     ("Groundhog Day", 1993, "comédia", 9.0),
 ]
+
+ZUADAS = [
+    "Quando tu nasceu prematuro colocaram insufilm na incubadora",
+    "Com 5 meses tu ja andava pq ngm queria te pega de tão feio que era",
+    "Quando tu nasceu perguntaram se era atropelamento",
+    "Nem o médico quis te pegar quando tu nasceu",
+]
