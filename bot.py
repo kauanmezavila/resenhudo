@@ -411,7 +411,7 @@ async def gado(
     elif resultadoNum < 39:
         avaliação = "PADRÃO; dentro do limite aceitável..."
 
-    resposta = f"{alvo.mention}: **{resultado}%** {avaliação}"
+    resposta = f"**{resultado}%** {avaliação}\n> {alvo.mention}"
 
     try:
         await interaction.response.send_message(
@@ -424,7 +424,54 @@ async def gado(
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui zuar ele"
+                "❌ Não consegui avaliar ele"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="skill-issue",
+    description="Isso foi uma Skill Issue?",
+)
+@app_commands.describe(
+    user="Quem vai ser avaliado",
+)
+async def skill_issue(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    avaliação = "..."
+
+    resultado = str(random.random()).replace("0.", "")[:2]
+
+    resultadoNum = int(resultado)
+
+    if resultadoNum == 100:
+        avaliação = "PRA KCT :white_check_mark::white_check_mark:"
+
+    elif resultadoNum > 50:
+        avaliação = "SKILL-ISSUE PURA :white_check_mark:"
+
+    elif resultadoNum <= 50:
+        avaliação = "NÃO :x::x:"
+
+
+    resposta = f"{avaliação}\n> {alvo.mention}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao avaliar ele"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele"
                 "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
