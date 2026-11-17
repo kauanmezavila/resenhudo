@@ -207,12 +207,13 @@ O Bot mais RESENHA do Brasil
 - Sou OPEN SOURCE!
 [https://kmlresearchlabs.vercel.app/resenhudo]
 
-- Commit atual:
-> Por: **{last['author']}**
-> **{last['message']}**
-> **{last['sha']}**
+- Commit atual (**{last['author']}**):
 > **{last['date']}**
-> **{last['url']}**
+> **{last['message']}**
+
+- Infos nerds:
+> {last['sha']}
+> {last['url']}
 
 Powered by KML Research Labs
     """
