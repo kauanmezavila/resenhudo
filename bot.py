@@ -671,7 +671,7 @@ async def filme(
     description="Avalie se algo é resenha",
 )
 @app_commands.describe(
-    user="O que deve ser avaliado",
+    thing="O que deve ser avaliado",
 )
 async def avaliar(
     interaction: discord.Interaction,
