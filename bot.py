@@ -13,6 +13,7 @@ from server import webStart
 from triggers import *
 from gifs import *
 from data import *
+from github import *
 
 
 load_dotenv()
@@ -195,7 +196,9 @@ async def luck(interaction: discord.Interaction):
 )
 async def info(interaction: discord.Interaction):
 
-    texto = """**Resenhudo**
+    last = get_last_commit("kauanmezavila", "resenhudo")
+
+    texto = f"""**Resenhudo**
 O Bot mais RESENHA do Brasil
 
 - Maintainer: ByKurebo
@@ -203,6 +206,13 @@ O Bot mais RESENHA do Brasil
 
 - Sou OPEN SOURCE!
 [https://kmlresearchlabs.vercel.app/resenhudo]
+
+- Commit atual:
+> Por: **{last['author']}**
+> **{last['message']}**
+> **{last['sha']}**
+> **{last['date']}**
+> **{last['url']}**
 
 Powered by KML Research Labs
     """
