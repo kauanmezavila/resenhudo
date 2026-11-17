@@ -87,3 +87,9 @@ DEVAGAR_TRIGGERS = [
     "devagar",
     "devagar pai"
 ]
+
+ENTROSA_TRIGGERS = [
+    "entrosa",
+    "entroso",
+    "entrosou"
+]

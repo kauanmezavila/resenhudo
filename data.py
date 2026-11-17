@@ -246,3 +246,9 @@ FOFOCA_HORA = [
     "ano passado",
     "essa semana"
 ]
+
+ENTROSAS_IMAGES = [
+    "https://i.pinimg.com/736x/78/0b/f4/780bf401a9f2793051a39308f6745d00.jpg",
+    "https://i.pinimg.com/736x/a6/41/8c/a6418cf0fd258463ec4928c6815d8bd6.jpg",
+    "https://i.pinimg.com/736x/65/33/60/65336013307c33cb1625fc4fe3f75b7f.jpg",
+]

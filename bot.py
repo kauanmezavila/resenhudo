@@ -10,8 +10,6 @@ from discord import app_commands
 from discord.ext import commands, tasks
 import itertools
 
-from database import init_db, get_guild_config
-
 from server import webStart
 from triggers import *
 from gifs import *
@@ -43,8 +41,6 @@ logger = logging.getLogger("resenhudo")
 
 class Bot(commands.Bot):
     async def setup_hook(self):
-        init_db()
-        await self.load_extension("config")
         await self.tree.sync()
         logger.info("Slash commands sincronizados")
 
@@ -79,27 +75,18 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-
-    channel = bot.get_channel(123456789012345678)
-
-    if channel is None:
-        logger.warning("Canal de boas-vindas não encontrado para a guild %s", member.guild.id)
-        return
-
-    if not isinstance(channel, discord.abc.Messageable):
-        logger.warning("Canal %s não é uma mensagem válida para enviar boas-vindas", channel.id)
-        return
+    channel = member.guild.text_channels[0]
 
     embed = discord.Embed(
-        title="🎉 Novo membro!",
-        description=f"Seja bem-vindo(a), {member.mention}!\nEsperamos que goste da comunidade!",
+        title="NOVO RESENHA!",
+        description=f"{member.mention} chegou para a batalha RESENHAS x ENTROSAS",
         color=discord.Color.blurple()
     )
 
     embed.set_thumbnail(url=member.display_avatar.url)
 
     embed.set_footer(
-        text=f"Agora somos {member.guild.member_count} membros!"
+        text=f"Agora somos {member.guild.member_count} resenhas!"
     )
 
     await channel.send(embed=embed)
@@ -126,6 +113,13 @@ async def on_message(message: discord.Message):
         ):
             if random.random() < 0.85 and GIFS_RESENHA:
                 await message.reply(random.choice(GIFS_RESENHA))
+
+        elif any(
+            trigger.lower() in texto
+            for trigger in ENTROSA_TRIGGERS
+        ):
+            if random.random() < 0.85 and ENTROSAS_IMAGES:
+                await message.reply(random.choice(ENTROSAS_IMAGES))
 
         elif any(
             trigger.lower() in texto
@@ -418,6 +412,34 @@ async def roast(
             await interaction.response.send_message(
                 "❌ Não consegui zuar ele"
                 "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="entrosa",
+    description="Larpa esse entrosa!",
+)
+@app_commands.describe(
+    user="Entrosa a ser LARPADO",
+)
+async def entrosa(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    try:
+        await interaction.response.send_message(
+            content=random.choice(ENTROSAS_IMAGES))
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao tentar larpar o entrosa."
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui larpar ele "
+                "O pq eu n sei...",
                 ephemeral=True,
             )
 
