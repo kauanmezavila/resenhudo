@@ -15,6 +15,7 @@ from triggers import *
 from gifs import *
 from data import *
 from github import *
+from calcs import *
 
 
 load_dotenv()
@@ -28,7 +29,7 @@ JE_MUSIC = BASE_DIR / "media" / "je.wav"
 DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
 TORFIN_MUSIC = BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
 
-LISTONA = SIX_SEVEN_TRIGGERS + RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS
+LISTONA = SIX_SEVEN_TRIGGERS + RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS + LARP_TRIGGERS + ENTROSA_TRIGGERS
 
 logging.basicConfig(
     level=logging.INFO,
@@ -36,7 +37,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("resenhudo")
-
 
 
 class Bot(commands.Bot):
@@ -665,6 +665,35 @@ async def filme(
     )
 
     await interaction.response.send_message(resposta)
+
+@bot.tree.command(
+    name="avaliar",
+    description="Avalie se algo é resenha",
+)
+@app_commands.describe(
+    user="O que deve ser avaliado",
+)
+async def avaliar(
+    interaction: discord.Interaction,
+    thing: str,
+):
+
+    resposta = calc_resenha(thing)
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao avaliar se é resenha"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar",
+                ephemeral=True,
+            )
 
 
 
