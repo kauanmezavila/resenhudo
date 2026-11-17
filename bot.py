@@ -7,7 +7,8 @@ from pathlib import Path
 import discord
 from dotenv import load_dotenv
 from discord import app_commands
-from discord.ext import commands
+from discord.ext import commands, tasks
+import itertools
 
 from server import webStart
 from triggers import *
@@ -26,6 +27,8 @@ SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
 JE_MUSIC = BASE_DIR / "media" / "je.wav"
 DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
 TORFIN_MUSIC = BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
+
+LISTONA = SIX_SEVEN_TRIGGERS + RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS
 
 logging.basicConfig(
     level=logging.INFO,
@@ -50,18 +53,23 @@ bot = Bot(
     intents=intents,
 )
 
+statuses = itertools.cycle([
+    discord.Activity(
+        type=discord.ActivityType.watching,
+        name=random.choice(LISTONA)
+    ),
+])
+
+
+@tasks.loop(seconds=15)
+async def rotate_status():
+    await bot.change_presence(activity=next(statuses))
 
 @bot.event
 async def on_ready():
-    activity = discord.Activity(
-        type=discord.ActivityType.watching,
-        name="Sou OpenSource! https://kmlresearchlabs.vercel.app/resenhudo",
-    )
+    if not rotate_status.is_running():
+        rotate_status.start()
 
-    await bot.change_presence(
-        status=discord.Status.online,
-        activity=activity,
-    )
 
     logger.info("%s ACORDOU", bot.user)
 
