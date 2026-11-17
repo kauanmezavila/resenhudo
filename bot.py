@@ -675,7 +675,7 @@ async def filme(
 )
 async def avaliar(
     interaction: discord.Interaction,
-    thing: str,
+    thing: str | None = None,
 ):
 
     resposta = calc_resenha(thing)
