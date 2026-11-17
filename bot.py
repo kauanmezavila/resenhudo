@@ -269,7 +269,7 @@ Powered by KML Research Labs
 async def trending(interaction: discord.Interaction):
     resposta = get_trending()
 
-    await interaction.response.send_message(resposta)
+    await interaction.response.send_message(resposta, suppress_embeds=True)
 
 @bot.tree.command(
     name="serie",
