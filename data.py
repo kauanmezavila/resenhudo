@@ -211,3 +211,38 @@ ZUADAS = [
     "Quando tu nasceu perguntaram se era atropelamento",
     "Nem o médico quis te pegar quando tu nasceu",
 ]
+
+FOFOCA_NOME = [
+    "Derponce",
+    "Raulzitos",
+    "Jeffrey Epstein",
+    "Charlie Kirk",
+    "Douglassola",
+    "Enzo Túlio (1155 do ET)",
+    "Irmão Gamer",
+    "Lula",
+    "Bolsonaro",
+    "Renan Santos",
+    "Dilma"
+]
+
+FOFOCA_AÇÃO = [
+    "bateu em",
+    "esmurrou",
+    "esbofeteou",
+    "beijou",
+    "flertou",
+    "matou",
+    "ressucitou",
+    "lesionou",
+    "enganou",
+]
+
+FOFOCA_HORA = [
+    "ontem",
+    "hoje",
+    "de manhã",
+    "no futuro",
+    "ano passado",
+    "essa semana"
+]

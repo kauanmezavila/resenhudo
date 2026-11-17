@@ -477,6 +477,44 @@ async def skill_issue(
             )
 
 @bot.tree.command(
+    name="fofoca",
+    description="Conte uma fofoca",
+)
+async def fofoca(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    avaliação = "..."
+
+    pessoa1 = random.choice(FOFOCA_NOME)
+
+    pessoa2 = random.choice(FOFOCA_NOME)
+    while pessoa2 == pessoa1:
+        pessoa2 = random.choice(FOFOCA_NOME)
+
+    ação = random.choice(FOFOCA_AÇÃO)
+
+    hora = random.choice(FOFOCA_HORA)
+
+    resposta = f"EXTRA, EXTRA!:\n **{pessoa1} {ação} {pessoa2} {hora}**"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao contar uma fofoca"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui contar uma fofoca"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
     name="filme",
     description="Sorteia um filme ABSOLUTE CINEMA",
 )

@@ -30,6 +30,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /enemys      | Marca quem não tem inimigos                                      |
 | Comando | /gado        | Avalia quão gado alguém é                                        |
 | Comando | /skill-issue | Avalia se foi skill-issue                                        |
+| Comando | /fofoca      | Conta uma fofoca                                                 |
 
 ## Arquitetura
 
