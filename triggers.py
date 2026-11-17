@@ -91,5 +91,13 @@ DEVAGAR_TRIGGERS = [
 ENTROSA_TRIGGERS = [
     "entrosa",
     "entroso",
-    "entrosou"
+    "entrosou",
+    "entrosei"
+]
+
+LARP_TRIGGERS = [
+    "larp",
+    "larpar",
+    "larpei",
+    "larpo"
 ]

@@ -252,3 +252,9 @@ ENTROSAS_IMAGES = [
     "https://i.pinimg.com/736x/a6/41/8c/a6418cf0fd258463ec4928c6815d8bd6.jpg",
     "https://i.pinimg.com/736x/65/33/60/65336013307c33cb1625fc4fe3f75b7f.jpg",
 ]
+
+LARP_IMAGES = [
+    "https://i.pinimg.com/736x/23/df/49/23df496ee3e0f4710bac0d7c5ce86097.jpg",
+    "https://i.pinimg.com/736x/8a/89/68/8a8968b954ebed3db16b15d6329e1b72.jpg",
+    "https://i.pinimg.com/736x/b0/57/a5/b057a580eca86082b55dfe6f81f31731.jpg"
+]

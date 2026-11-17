@@ -123,6 +123,13 @@ async def on_message(message: discord.Message):
 
         elif any(
             trigger.lower() in texto
+            for trigger in LARP_TRIGGERS
+        ):
+            if random.random() < 0.85 and LARP_IMAGES:
+                await message.reply(random.choice(LARP_IMAGES))
+
+        elif any(
+            trigger.lower() in texto
             for trigger in CEMPILA_TRIGGERS
         ):
             if random.random() < 0.85:
@@ -439,6 +446,34 @@ async def entrosa(
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui larpar ele "
+                "O pq eu n sei...",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="larp",
+    description="Algo sobre larp",
+)
+@app_commands.describe(
+    user="Marca algm",
+)
+async def larp(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    try:
+        await interaction.response.send_message(
+            content=random.choice(LARP_IMAGES))
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao tentar larpar"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui larpar"
                 "O pq eu n sei...",
                 ephemeral=True,
             )
