@@ -26,6 +26,9 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /filme      | Aleatoriza um filme                                              |
 | Comando | /series     | Aleatoriza uma série                                             |
 | Comando | /luck       | Aleatoriza uma frase                                             |
+| Comando | /roast      | Zoa alguém, pode marcar                                          |
+| Comando | /enemys     | Marca quem não tem inimigos                                      |
+| Comando | /gado       | Avalia quão gado alguém é                                        |
 
 ## Arquitetura
 

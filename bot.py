@@ -372,6 +372,64 @@ async def roast(
             )
 
 @bot.tree.command(
+    name="gado",
+    description="O quão GADO você é???",
+)
+@app_commands.describe(
+    user="Quem vai ser avaliado",
+)
+async def gado(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    avaliação = "..."
+
+    resultado = str(random.random()).replace("0.", "")[:2]
+
+    resultadoNum = int(resultado)
+
+    if resultadoNum == 100:
+        avaliação = "GADO PURÍSSIMO; vo fala nada, tenho é dó"
+
+    elif resultadoNum >= 80 and resultadoNum < 100:
+        avaliação = "GADO; igual orelha de boi: perto do chifre e longe do rabo"
+
+    elif resultadoNum >= 70 and resultadoNum < 79:
+        avaliação = "GADINHO; já ta começando a usar coleira..."
+
+    elif resultadoNum >= 60 and resultadoNum < 69:
+        avaliação = "ASPIRANTE BOVINO; já pede foto em troca de Nitro, vergonhoso..."
+
+    elif resultadoNum >= 50 and resultadoNum < 59:
+        avaliação = "CACHORRINHO; da tempo de voltar irm"
+
+    elif resultadoNum >= 40 and resultadoNum < 49:
+        avaliação = "BRINQUEDO; damn, tu chama ela/ele de 'momoreco' e faz voz de bebê??"
+
+    elif resultadoNum < 39:
+        avaliação = "PADRÃO; dentro do limite aceitável..."
+
+    resposta = f"{alvo.mention}: **{resultado}%** {avaliação}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao avaliar ele"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui zuar ele"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
     name="filme",
     description="Sorteia um filme ABSOLUTE CINEMA",
 )
