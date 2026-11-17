@@ -241,11 +241,9 @@ async def info(interaction: discord.Interaction):
     texto = f"""**Resenhudo**
 O Bot mais RESENHA do Brasil
 
-- Maintainer: ByKurebo
-[https://github.com/kauanmezavila]
+- Maintainer: [ByKurebo](https://github.com/kauanmezavila)
 
-- Sou OPEN SOURCE!
-[https://kmlresearchlabs.vercel.app/resenhudo]
+- Sou [OPEN SOURCE!](https://kmlresearchlabs.vercel.app/resenhudo)
 
 - Commit atual (**{last['author']}**):
 > **{last['date']}**
@@ -253,7 +251,7 @@ O Bot mais RESENHA do Brasil
 
 - Infos nerds:
 > {last['sha']}
-> {last['url']}
+> [URL DO COMMIT]({last['url']})
 
 Powered by KML Research Labs
     """
@@ -264,6 +262,14 @@ Powered by KML Research Labs
         suppress_embeds=True,
     )
 
+@bot.tree.command(
+    name="trending",
+    description="Veja repos no Github TENDÊNCIAS",
+)
+async def trending(interaction: discord.Interaction):
+    resposta = get_trending()
+
+    await interaction.response.send_message(resposta)
 
 @bot.tree.command(
     name="serie",
