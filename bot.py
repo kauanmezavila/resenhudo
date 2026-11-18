@@ -732,7 +732,35 @@ async def avaliar(
                 ephemeral=True,
             )
 
+#
+# GAMES RESENHUDOS
+#
 
+@bot.tree.command(
+    name="caraoucoroa",
+    description="Cara ou coroa padrão",
+)
+async def caraoucoroa(
+    interaction: discord.Interaction,
+):
+    faces = ["CARA", "COROA"]
+
+    resposta = "Caiu..." + random.choice(faces)
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao jogar cara ou coroa"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui jogar",
+                ephemeral=True,
+            )
 
 if __name__ == "__main__":
     if TOKEN:

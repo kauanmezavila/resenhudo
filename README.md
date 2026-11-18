@@ -44,6 +44,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /larp        | Larp someone                                        |
 | Command | /avaliar     | Judges how much something is                        |
 | Command | /universo    | Build a absurd universe                             |
+| Command | /caraoucoroa | Play head or tails                                  |
 
 ## Architecture
 
