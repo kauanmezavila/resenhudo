@@ -258,3 +258,50 @@ LARP_IMAGES = [
     "https://i.pinimg.com/736x/8a/89/68/8a8968b954ebed3db16b15d6329e1b72.jpg",
     "https://i.pinimg.com/736x/b0/57/a5/b057a580eca86082b55dfe6f81f31731.jpg"
 ]
+
+UNIVERSO_REIS = [
+    "Ednaldo Pereira",
+    "Enaldinho",
+    "Renan Santos",
+    "Lula",
+    "Bolsonaro",
+    "Dilma",
+    "Alexandre De Moraes",
+    "Feijão Com Farinha",
+    "1155 do ET",
+    "Rambo Cearense",
+    "Faustão",
+    "Silvio Santos",
+    "Igão 3k",
+    "Monark",
+    "Vinícius 13",
+    "Felca"
+]
+
+UNIVERSO_TAMANHO = [
+    "infinito",
+    "pequeno",
+    "menor que uma casa",
+]
+
+UNIVERSO_SITUAÇÃO = [
+    "ajudou",
+    "governou",
+    "condenou",
+    "prendeu",
+    "matou",
+    "censurou",
+    "cancelou",
+    "libertou"
+]
+
+UNIVERSO_PESSOAS = [
+    "UMA pessoa",
+    "500 pessoas",
+    "ninguém",
+    "todo mundo",
+    "67 pessoas",
+    ">16< pessoas",
+    "13 pessoas",
+    "22 pessoas"
+]

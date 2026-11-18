@@ -24,6 +24,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | ------- | ------------ | --------------------------------------------------- |
 | Trigger | 67           | Answer messages related to 67 with a gif            |
 | Trigger | Resenha      | Answer messages related to 'resenha' with a gif     |
+| Trigger | Calabreso    | Answer messages related to 'calabreso' with a gif   |
 | Trigger | Cem reais    | Answer messages related to '100 reais' with a video |
 | Trigger | JE           | Answer messages related to JE with a music          |
 | Trigger | Devagar Pai  | Answer messages related to 'devagar' with a video   |
@@ -42,6 +43,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /entrosa     | A weapon agains't the entrosas                      |
 | Command | /larp        | Larp someone                                        |
 | Command | /avaliar     | Judges how much something is                        |
+| Command | /universo    | Build a absurd universe                             |
 
 ## Architecture
 

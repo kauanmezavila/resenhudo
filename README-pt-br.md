@@ -20,6 +20,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | ------- | ------------ | ---------------------------------------------------------- |
 | Trigger | 67           | Responde mensagens relacionadas a 67 com um gif            |
 | Trigger | Resenha      | Responde mensagens relacionadas a 'resenha' com um gif     |
+| Trigger | Calabreso    | Responde mensagens relacionadas a 'calabreso' com um gif   |
 | Trigger | Cem reais    | Responde mensagens relacionadas a '100 reais' com um vídeo |
 | Trigger | JE           | Responde mensagens relacionadas a JE com uma música        |
 | Trigger | Devagar Pai  | Responde mensagens relacionadas a 'devagar' com um vídeo   |
@@ -38,6 +39,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /entrosa     | Uma arma contra os entrosas                                |
 | Comando | /larp        | Larpe alguém                                               |
 | Comando | /avaliar     | Avalia quão resenha algo é                                 |
+| Comando | /universo    | Monte um universo absurdo                                  |
 
 ## Arquitetura
 

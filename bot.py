@@ -107,6 +107,13 @@ async def on_message(message: discord.Message):
             if random.random() < 0.85 and GIFS_67:
                 await message.reply(random.choice(GIFS_67))
 
+        if any(
+            trigger.lower() in texto
+            for trigger in CALABRESO_TRIGGERS
+        ):
+            if random.random() < 0.85 and GIFS_CALABRESO:
+                await message.reply(random.choice(GIFS_CALABRESO))
+
         elif any(
             trigger.lower() in texto
             for trigger in RESENHA_TRIGGERS
@@ -595,10 +602,7 @@ async def skill_issue(
 )
 async def fofoca(
     interaction: discord.Interaction,
-    user: discord.Member | None = None,
 ):
-    avaliação = "..."
-
     pessoa1 = random.choice(FOFOCA_NOME)
 
     pessoa2 = random.choice(FOFOCA_NOME)
@@ -623,6 +627,39 @@ async def fofoca(
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui contar uma fofoca"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="universo",
+    description="Monte um universo ABSURDO",
+)
+async def universo(
+    interaction: discord.Interaction,
+):
+    rei = random.choice(UNIVERSO_REIS)
+
+    tamanho = random.choice(UNIVERSO_TAMANHO)
+
+    pessoas = random.choice(UNIVERSO_PESSOAS)
+
+    situação = random.choice(UNIVERSO_SITUAÇÃO)
+
+    resposta = f"Em um universo {tamanho} paralelo, {rei} {situação} {pessoas}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao montar um universo"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui montar um universo"
                 "O HTTP zuo no bagulho",
                 ephemeral=True,
             )

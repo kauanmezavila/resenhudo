@@ -101,3 +101,11 @@ LARP_TRIGGERS = [
     "larpei",
     "larpo"
 ]
+
+CALABRESO_TRIGGERS = [
+    "calabreso",
+    "calabresa",
+    "calma",
+    "calabresudo",
+    "calabresanha"
+]
