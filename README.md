@@ -1,52 +1,65 @@
 <div align="center">
   <h1>Resenhudo</h1>
-  <p>O bot mais resenha do Brasil no seu discord!</p>
-  <p><b>v0.0.2: Apreciador da resenha</b></p>
+  <p>The most resenha bot on your server!</p>
+  <p><b>v0.1.0: Member of Resenha</b></p>
+  <p>| <a href="https://github.com/kauanmezavila/resenhudo/blob/main/README-pt-br.md">🇧🇷 PT-BR</a> | <a href="https://github.com/kauanmezavila/resenhudo/blob/main/README.md">🇺🇸 EN</a> |</p>
   <img src="media/THEPCISTA.jpg">
 </div>
 
-## O que é?
+## What it is?
 
-Resenhudo, é o bot mestre da resenha; não importa a situação, ele estará lá pronto para fazer os membros rirem!
+Resenhudo, is the master of the resenha; don't mather the situation, he will be there to make everyone laughs!
 
-## Instalação
+> Hey! This bot is made thinking about the Brazilian Public.
+> Every type of humour and things here are completely normal
+> and comic for the destinated public
 
-Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?client_id=1564434767179686079&permissions=125952&integration_type=0&scope=bot)
+## Installation
 
-## Resenhas disponíveis
+Install in your server clicking [here](https://discord.com/oauth2/authorize?client_id=1564434767179686079&permissions=125952&integration_type=0&scope=bot)
 
-| Tipo    | Nome         | Ação                                                             |
-| ------- | ------------ | ---------------------------------------------------------------- |
-| Trigger | 67           | Responde mensagens relacionadas a 67 com um gif                  |
-| Trigger | Resenha      | Responde mensagens relacionadas a 'resenha' com um gif           |
-| Trigger | Cem reais    | Responde mensagens relacionadas a '100 reais' com um vídeo       |
-| Trigger | JE           | Responde mensagens relacionadas a Jeffrey Epstein com uma música |
-| Trigger | Devagar Pai  | Responde mensagens relacionadas a 'devagar' com um vídeo         |
-| Trigger | Entrosa      | Responde mensagens relacionadas a 'entrosa' com uma imagem       |
-| Trigger | Larp         | Responde mensagens relacionadas a 'larp' com uma image,          |
-| Comando | /sofrer      | Toca uma do periclão, pode marcar alguém                         |
-| Comando | /filme       | Aleatoriza um filme                                              |
-| Comando | /series      | Aleatoriza uma série                                             |
-| Comando | /luck        | Aleatoriza uma frase                                             |
-| Comando | /roast       | Zoa alguém, pode marcar                                          |
-| Comando | /enemys      | Marca quem não tem inimigos                                      |
-| Comando | /gado        | Avalia quão gado alguém é                                        |
-| Comando | /skill-issue | Avalia se foi skill-issue                                        |
-| Comando | /fofoca      | Conta uma fofoca                                                 |
-| Comando | /trending    | Puxa os 10 melhores repos do Github                              |
-| Comando | /entrosa     | Uma arma contra os entrosas                                      |
-| Comando | /larp        | Larpe alguém                                                     |
-| Comando | /avaliar     | Avalia quão resenha algo é                                       |
+## Avaliable resenhas
 
-## Arquitetura
+| Tipo    | Nome         | Ação                                                |
+| ------- | ------------ | --------------------------------------------------- |
+| Trigger | 67           | Answer messages related to 67 with a gif            |
+| Trigger | Resenha      | Answer messages related to 'resenha' with a gif     |
+| Trigger | Cem reais    | Answer messages related to '100 reais' with a video |
+| Trigger | JE           | Answer messages related to JE with a music          |
+| Trigger | Devagar Pai  | Answer messages related to 'devagar' with a video   |
+| Trigger | Entrosa      | Answer messages related to 'entrosa' with a image   |
+| Trigger | Larp         | Answer messages related to 'larp' with a image      |
+| Command | /sofrer      | Play on music from Péricles, can mark someone       |
+| Command | /filme       | Randomize a film                                    |
+| Command | /series      | Randomize a serie                                   |
+| Command | /luck        | Randomize a phrase                                  |
+| Command | /roast       | Roast someone, can mark someone                     |
+| Command | /enemys      | Mark someone that doens't have enemies              |
+| Command | /gado        | Judges how much someone is simp                     |
+| Command | /skill-issue | Judges if something was a skill-issue               |
+| Command | /fofoca      | Tells an absurd gossip                              |
+| Command | /trending    | Show the top 10 repos from Github                   |
+| Command | /entrosa     | A weapon agains't the entrosas                      |
+| Command | /larp        | Larp someone                                        |
+| Command | /avaliar     | Judges how much something is                        |
 
-O bot utiliza o framework discord.py, além disso, o código utiliza de uma infraestrutura modular, aonde ações do bot estão em [bot.py](https://github.com/kauanmezavila/resenhudo/blob/main/bot.py), os triggers para ações em [triggers.py](https://github.com/kauanmezavila/resenhudo/blob/main/triggers.py), e os gifs em [gifs.py](https://github.com/kauanmezavila/resenhudo/blob/main/gifs.py)
+## Architecture
 
-### **Como o bot fica on 24/7 no Render gratuito?**
+The bot uses discord.py, and, the code uses a modular architecture:
 
-Um guiazinho pra você amigo indie hacker sem dinheiro (igual eu):
+- [bot.py](https://github.com/kauanmezavila/resenhudo/blob/main/bot.py) bot actions
+- [triggers.py](https://github.com/kauanmezavila/resenhudo/blob/main/triggers.py) triggers for actions
+- [gifs.py](https://github.com/kauanmezavila/resenhudo/blob/main/gifs.py) gifs sources for actions
+- [data.py](https://github.com/kauanmezavila/resenhudo/blob/main/data.py) data for actions
+- [server.py](https://github.com/kauanmezavila/resenhudo/blob/main/server.py) to run on Render
+- [github.py](https://github.com/kauanmezavila/resenhudo/blob/main/github.py) Github data for actions
+- [calcs.py](https://github.com/kauanmezavila/resenhudo/blob/main/calcs.py) calculations for actions
 
-1. Crie uma rota no seu bot /health
-2. Va no [Uptimerobot](uptimerobot.com)
-3. Coloque a rota /health lá pra cada 10-5 min
-4. Pronto! O bot nunca dorme.
+### **How the bot can stay 24/7 on free tier Render?**
+
+A little knowledge for you broked friend indie hacker (like me):
+
+1. Code a /health route
+2. Go on [Uptimerobot](uptimerobot.com)
+3. Configure to consult the /health route every 10-5 min
+4. Ready! The bot never sleeps.
