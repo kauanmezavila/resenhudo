@@ -762,6 +762,38 @@ async def caraoucoroa(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="dado",
+    description="Dado padrão",
+)
+@app_commands.describe(
+    faces="Número de faces (padrão: 6)",
+)
+async def dado(
+    interaction: discord.Interaction,
+    faces: int | None = None,
+):
+
+    if faces == None:
+        faces = 6
+
+    resposta = "Caiu..." + str(random.randrange(faces))
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao jogar o dado"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui jogar o dado",
+                ephemeral=True,
+            )
+
 if __name__ == "__main__":
     if TOKEN:
         webStart()

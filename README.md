@@ -45,6 +45,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /avaliar     | Judges how much something is                        |
 | Command | /universo    | Build a absurd universe                             |
 | Command | /caraoucoroa | Play head or tails                                  |
+| Command | /dado        | Play a dice, can choss number of faces              |
 
 ## Architecture
 

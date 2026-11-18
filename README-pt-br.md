@@ -41,6 +41,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /avaliar     | Avalia quão resenha algo é                                 |
 | Comando | /universo    | Monte um universo absurdo                                  |
 | Comando | /caraoucoroa | Jogar cara ou coroa                                        |
+| Comando | /dado        | Joga um dado, pode escolher número de faces                |
 
 ## Arquitetura
 
