@@ -42,6 +42,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /universo    | Monte um universo absurdo                                  |
 | Comando | /caraoucoroa | Jogar cara ou coroa                                        |
 | Comando | /dado        | Joga um dado, pode escolher número de faces                |
+| Comando | /advinhar    | Joga o jogo de advinhar que número estou pensando          |
 
 ## Arquitetura
 

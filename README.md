@@ -46,6 +46,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /universo    | Build a absurd universe                             |
 | Command | /caraoucoroa | Play head or tails                                  |
 | Command | /dado        | Play a dice, can choss number of faces              |
+| Command | /advinhar    | Play the "Guess the number i am thinking"           |
 
 ## Architecture
 

@@ -794,6 +794,38 @@ async def dado(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="advinhar",
+    description="Advinhe o número que estou pensando",
+)
+@app_commands.describe(
+    número="O seu número",
+)
+async def advinhar(
+    interaction: discord.Interaction,
+    número: int | None = None,
+):
+
+    if número == None:
+        número = 6
+
+    resposta = "Perdeu otário akakakakaka, eu tinha pensado em" + str(número + 7)
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao jogar o games"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui pensar em um número",
+                ephemeral=True,
+            )
+
 if __name__ == "__main__":
     if TOKEN:
         webStart()
