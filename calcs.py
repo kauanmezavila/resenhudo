@@ -44,3 +44,18 @@ def calc_today_resenha():
 
     return " ".join(resenha)
 
+def calc_aura(pessoa):
+    aura = 0
+
+    if len(str(pessoa.name)) > 10:
+        aura -= 50 * (len(str(pessoa.name)) - 10)
+    else:
+        aura += 50 * (10 // len(str(pessoa.name)))
+
+    for letter in pessoa.name:
+        if letter.isalpha():
+            aura += 50
+        else:
+            aura -= 10
+
+    return aura

@@ -621,6 +621,39 @@ async def skill_issue(
             )
 
 @bot.tree.command(
+    name="aura",
+    description="Meça a AURA de alguém",
+)
+@app_commands.describe(
+    user="Quem vai ser avaliado",
+)
+async def aura(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    resultado = calc_aura(alvo)
+
+    resposta = f"{alvo.mention}: {resultado}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao avaliar ele"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )       
+
+@bot.tree.command(
     name="fofoca",
     description="Conte uma fofoca",
 )
