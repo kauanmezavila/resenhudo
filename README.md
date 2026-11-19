@@ -47,6 +47,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /caraoucoroa | Play head or tails                                  |
 | Command | /dado        | Play a dice, can choss number of faces              |
 | Command | /advinhar    | Play the "Guess the number i am thinking"           |
+| Command | /daily       | A resenha based on the day                          |
 
 ## Architecture
 

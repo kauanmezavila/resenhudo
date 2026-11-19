@@ -1,6 +1,7 @@
 .env
 .vscode/
 .venv/
+__pycache__/
 
 # Some archives for logics and calcs tests
 dados.txt

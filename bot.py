@@ -732,6 +732,31 @@ async def avaliar(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="daily",
+    description="Resenha diária,",
+)
+async def daily(
+    interaction: discord.Interaction,
+):
+
+    resposta = f"RESENHA DE HOJE: **{calc_today_resenha()}** :white_check_mark:"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao avaliar se é resenha"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar",
+                ephemeral=True,
+            )
+
 #
 # GAMES RESENHUDOS
 #
@@ -745,7 +770,7 @@ async def caraoucoroa(
 ):
     faces = ["CARA", "COROA"]
 
-    resposta = "Caiu..." + random.choice(faces)
+    resposta = "Caiu... " + random.choice(faces)
 
     try:
         await interaction.response.send_message(
@@ -777,7 +802,7 @@ async def dado(
     if faces == None:
         faces = 6
 
-    resposta = "Caiu..." + str(random.randrange(faces))
+    resposta = "Caiu... " + str(random.randrange(faces))
 
     try:
         await interaction.response.send_message(
@@ -809,7 +834,7 @@ async def advinhar(
     if número == None:
         número = 6
 
-    resposta = "Perdeu otário akakakakaka, eu tinha pensado em" + str(número + 7)
+    resposta = "Perdeu otário akakakakaka, eu tinha pensado em " + str(número + 7)
 
     try:
         await interaction.response.send_message(
