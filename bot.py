@@ -734,7 +734,7 @@ async def avaliar(
 
 @bot.tree.command(
     name="daily",
-    description="Resenha diária,",
+    description="Resenha diária",
 )
 async def daily(
     interaction: discord.Interaction,
