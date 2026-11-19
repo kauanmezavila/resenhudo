@@ -2,6 +2,7 @@ import os
 import random
 import logging
 import requests
+import subprocess
 from pathlib import Path
 
 import discord
@@ -245,6 +246,23 @@ async def info(interaction: discord.Interaction):
 
     last = get_last_commit("kauanmezavila", "resenhudo")
 
+    commit = subprocess.check_output(
+        ["git", "log", "-1", "--format=%H|%cI|%an|%s"],
+        text=True
+    ).strip()
+
+    commit_hash, commit_date, commit_author, commit_message = commit.split("|", 3)
+
+    remote_url = subprocess.check_output(
+        ["git", "remote", "get-url", "origin"],
+        text=True
+    ).strip()
+
+    remote_url = remote_url.replace("git@github.com:", "https://github.com/")
+    remote_url = remote_url.removesuffix(".git")
+
+    commit_url = f"{remote_url}/commit/{commit_hash}"
+
     texto = f"""**Resenhudo**
 O Bot mais RESENHA do Brasil
 
@@ -252,13 +270,19 @@ O Bot mais RESENHA do Brasil
 
 - Sou [OPEN SOURCE!](https://kmlresearchlabs.vercel.app/resenhudo)
 
-- Commit atual (**{last['author']}**):
+- Último commit atual (**{commit_author}**)
+> **{commit_date}**
+> **{commit_message}**
+
+- Último commit remoto (**{last['author']}**):
 > **{last['date']}**
 > **{last['message']}**
 
 - Infos nerds:
-> {last['sha']}
-> [URL DO COMMIT]({last['url']})
+> ATUAL {commit_hash}
+> ATUAL [URL]({commit_url})
+> REMOTO {last['sha']}
+> REMOTO [URL]({last['url']})
 
 Powered by KML Research Labs
     """
@@ -748,12 +772,12 @@ async def daily(
         )
     except discord.HTTPException:
         logger.exception(
-            "Erro ao avaliar se é resenha"
+            "Erro ao divulgar resenha de hoje"
         )
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui avaliar",
+                "❌ Não consegui achar a resenha de hoje",
                 ephemeral=True,
             )
 
