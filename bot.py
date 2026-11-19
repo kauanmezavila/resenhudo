@@ -11,7 +11,6 @@ from discord import app_commands
 from discord.ext import commands, tasks
 import itertools
 
-from server import webStart
 from triggers import *
 from gifs import *
 from data import *
@@ -910,7 +909,6 @@ async def advinhar(
 
 if __name__ == "__main__":
     if TOKEN:
-        webStart()
         bot.run(TOKEN)
     else:
         logger.warning(
