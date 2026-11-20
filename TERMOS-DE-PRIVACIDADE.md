@@ -18,7 +18,7 @@ Para identificar os gatilhos configurados, o bot processa o conteúdo das mensag
 
 Conforme a implementação atual, esse processamento é realizado para:
 
-- Identificar expressões como "67", "six seven" e variações configuradas.
+- Identificar expressões e variações configuradas.
 - Selecionar uma resposta humorística.
 - Enviar a resposta ao canal ou à mensagem correspondente.
 
