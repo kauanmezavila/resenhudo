@@ -51,6 +51,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /aura        | Judges hou much aura someone have                   |
 | Command | /curriculum  | Generates a Curriculum Vitae of someone             |
 | Command | /noticia     | Makes absurd news about the server members          |
+| Command | /advogado    | _"Better Call Resenhudo!"_                          |
 
 ## Architecture
 

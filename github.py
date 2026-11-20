@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime, timezone, timedelta
 
+
 def get_last_commit(owner, repo):
     url = f"https://api.github.com/repos/{owner}/{repo}/commits"
 
@@ -14,13 +15,12 @@ def get_last_commit(owner, repo):
         "message": commit["commit"]["message"],
         "author": commit["commit"]["author"]["name"],
         "date": commit["commit"]["author"]["date"],
-        "url": commit["html_url"]
+        "url": commit["html_url"],
     }
 
+
 def get_trending():
-    yesterday = (
-        datetime.now(timezone.utc) - timedelta(days=1)
-    ).strftime("%Y-%m-%d")
+    yesterday = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")
 
     url = "https://api.github.com/search/repositories"
 
@@ -28,7 +28,7 @@ def get_trending():
         "q": f"pushed:>{yesterday} stars:>5",
         "sort": "stars",
         "order": "desc",
-        "per_page": 10
+        "per_page": 10,
     }
 
     response = requests.get(url, params=params)

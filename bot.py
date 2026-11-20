@@ -27,9 +27,19 @@ CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
 SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
 JE_MUSIC = BASE_DIR / "media" / "je.wav"
 DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
-TORFIN_MUSIC = BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
+TORFIN_MUSIC = (
+    BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
+)
 
-LISTONA = SIX_SEVEN_TRIGGERS + RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS + LARP_TRIGGERS + ENTROSA_TRIGGERS
+LISTONA = (
+    SIX_SEVEN_TRIGGERS
+    + RESENHA_TRIGGERS
+    + CEMPILA_TRIGGERS
+    + DEVAGAR_TRIGGERS
+    + JE_TRIGGERS
+    + LARP_TRIGGERS
+    + ENTROSA_TRIGGERS
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -54,25 +64,27 @@ bot = Bot(
     intents=intents,
 )
 
-statuses = itertools.cycle([
-    discord.Activity(
-        type=discord.ActivityType.watching,
-        name=random.choice(LISTONA)
-    ),
-])
+statuses = itertools.cycle(
+    [
+        discord.Activity(
+            type=discord.ActivityType.watching, name=random.choice(LISTONA)
+        ),
+    ]
+)
 
 
 @tasks.loop(seconds=15)
 async def rotate_status():
     await bot.change_presence(activity=next(statuses))
 
+
 @bot.event
 async def on_ready():
     if not rotate_status.is_running():
         rotate_status.start()
 
-
     logger.info("%s ACORDOU", bot.user)
+
 
 @bot.event
 async def on_member_join(member):
@@ -81,14 +93,12 @@ async def on_member_join(member):
     embed = discord.Embed(
         title="NOVO RESENHA!",
         description=f"{member.mention} chegou para a batalha RESENHAS x ENTROSAS",
-        color=discord.Color.blurple()
+        color=discord.Color.blurple(),
     )
 
     embed.set_thumbnail(url=member.display_avatar.url)
 
-    embed.set_footer(
-        text=f"Agora somos {member.guild.member_count} resenhas!"
-    )
+    embed.set_footer(text=f"Agora somos {member.guild.member_count} resenhas!")
 
     await channel.send(embed=embed)
 
@@ -101,101 +111,62 @@ async def on_message(message: discord.Message):
     texto = message.content.lower()
 
     try:
-        if any(
-            trigger.lower() in texto
-            for trigger in SIX_SEVEN_TRIGGERS
-        ):
+        if any(trigger.lower() in texto for trigger in SIX_SEVEN_TRIGGERS):
             if random.random() < 0.85 and GIFS_67:
                 await message.reply(random.choice(GIFS_67))
 
-        if any(
-            trigger.lower() in texto
-            for trigger in CALABRESO_TRIGGERS
-        ):
+        if any(trigger.lower() in texto for trigger in CALABRESO_TRIGGERS):
             if random.random() < 0.85 and GIFS_CALABRESO:
                 await message.reply(random.choice(GIFS_CALABRESO))
 
-        elif any(
-            trigger.lower() in texto
-            for trigger in RESENHA_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in RESENHA_TRIGGERS):
             if random.random() < 0.85 and GIFS_RESENHA:
                 await message.reply(random.choice(GIFS_RESENHA))
 
-        elif any(
-            trigger.lower() in texto
-            for trigger in ENTROSA_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in ENTROSA_TRIGGERS):
             if random.random() < 0.85 and ENTROSAS_IMAGES:
                 await message.reply(random.choice(ENTROSAS_IMAGES))
 
-        elif any(
-            trigger.lower() in texto
-            for trigger in LARP_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in LARP_TRIGGERS):
             if random.random() < 0.85 and LARP_IMAGES:
                 await message.reply(random.choice(LARP_IMAGES))
 
-        elif any(
-            trigger.lower() in texto
-            for trigger in CEMPILA_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in CEMPILA_TRIGGERS):
             if random.random() < 0.85:
                 if CEMPILA_VIDEO_PATH.is_file():
-                    await message.reply(
-                        file=discord.File(
-                            str(CEMPILA_VIDEO_PATH)
-                        )
-                    )
+                    await message.reply(file=discord.File(str(CEMPILA_VIDEO_PATH)))
                 else:
                     logger.error(
                         "Vídeo não encontrado: %s",
                         CEMPILA_VIDEO_PATH,
                     )
 
-        elif any(
-            trigger.lower() in texto
-            for trigger in JE_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in JE_TRIGGERS):
             if random.random() < 0.85:
                 if JE_MUSIC.is_file():
-                    await message.reply(
-                        file=discord.File(
-                            str(JE_MUSIC)
-                        )
-                    )
+                    await message.reply(file=discord.File(str(JE_MUSIC)))
                 else:
                     logger.error(
                         "Áudio não encontrado: %s",
                         JE_MUSIC,
                     )
 
-        
-        elif any(
-            trigger.lower() in texto
-            for trigger in DEVAGAR_TRIGGERS
-        ):
+        elif any(trigger.lower() in texto for trigger in DEVAGAR_TRIGGERS):
             if random.random() < 0.85:
                 if DEVAGAR_VIDEO.is_file():
-                    await message.reply(
-                        file=discord.File(
-                            str(DEVAGAR_VIDEO)
-                        )
-                    )
+                    await message.reply(file=discord.File(str(DEVAGAR_VIDEO)))
                 else:
                     logger.error(
                         "Vídeo não encontrado: %s",
                         DEVAGAR_VIDEO,
                     )
-            
 
     except discord.HTTPException:
-        logger.exception(
-            "Calma rapaziada, deu red aqui."
-        )
+        logger.exception("Calma rapaziada, deu red aqui.")
 
     finally:
         await bot.process_commands(message)
+
 
 @bot.tree.command(
     name="ping",
@@ -208,6 +179,7 @@ async def ping(interaction: discord.Interaction):
         f"🏓 Pong! Latência: {ms} ms",
         ephemeral=True,
     )
+
 
 @bot.tree.command(
     name="luck",
@@ -232,11 +204,12 @@ async def luck(interaction: discord.Interaction):
     texto = f"""**Uma frase, para VOCÊ**
 > {fortune()}
 """
-    
+
     await interaction.response.send_message(
         texto,
         ephemeral=True,
     )
+
 
 @bot.tree.command(
     name="info",
@@ -247,15 +220,13 @@ async def info(interaction: discord.Interaction):
     last = get_last_commit("kauanmezavila", "resenhudo")
 
     commit = subprocess.check_output(
-        ["git", "log", "-1", "--format=%H|%cI|%an|%s"],
-        text=True
+        ["git", "log", "-1", "--format=%H|%cI|%an|%s"], text=True
     ).strip()
 
     commit_hash, commit_date, commit_author, commit_message = commit.split("|", 3)
 
     remote_url = subprocess.check_output(
-        ["git", "remote", "get-url", "origin"],
-        text=True
+        ["git", "remote", "get-url", "origin"], text=True
     ).strip()
 
     remote_url = remote_url.replace("git@github.com:", "https://github.com/")
@@ -293,6 +264,7 @@ Powered by KML Research Labs
         suppress_embeds=True,
     )
 
+
 @bot.tree.command(
     name="trending",
     description="Veja repos no Github TENDÊNCIAS",
@@ -301,6 +273,7 @@ async def trending(interaction: discord.Interaction):
     resposta = get_trending()
 
     await interaction.response.send_message(resposta, suppress_embeds=True)
+
 
 @bot.tree.command(
     name="serie",
@@ -314,9 +287,7 @@ async def serie(interaction: discord.Interaction):
         )
         return
 
-    serie_nome, temporada, episodio, titulo, nota = (
-        random.choice(EPISODIOS_RESENHA)
-    )
+    serie_nome, temporada, episodio, titulo, nota = random.choice(EPISODIOS_RESENHA)
 
     resposta = (
         f"🎬 **{serie_nome}**\n"
@@ -367,9 +338,7 @@ async def sofrer(
             ),
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao enviar a música no comando /sofrer."
-        )
+        logger.exception("Erro ao enviar a música no comando /sofrer.")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
@@ -377,6 +346,7 @@ async def sofrer(
                 "Verifique o tamanho do arquivo e os limites do Discord.",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="enemys",
@@ -404,8 +374,7 @@ async def enemys(
     alvo = user or interaction.user
 
     resposta = (
-        f"{alvo.mention}, você não tem inimigos...\n"
-        "🎶 **Aruarian Dance — Nujabes**"
+        f"{alvo.mention}, você não tem inimigos...\n" "🎶 **Aruarian Dance — Nujabes**"
     )
 
     try:
@@ -417,9 +386,7 @@ async def enemys(
             ),
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao enviar a música no comando /enemys."
-        )
+        logger.exception("Erro ao enviar a música no comando /enemys.")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
@@ -427,6 +394,7 @@ async def enemys(
                 "Verifique o tamanho do arquivo e os limites do Discord.",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="roast",
@@ -441,23 +409,21 @@ async def roast(
 ):
     alvo = user or interaction.user
 
-    resposta = (alvo.mention + " " + random.choice(ZUADAS))
+    resposta = alvo.mention + " " + random.choice(ZUADAS)
 
     try:
         await interaction.response.send_message(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao tentar zuar ele"
-        )
+        logger.exception("Erro ao tentar zuar ele")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui zuar ele"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui zuar ele" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="entrosa",
@@ -473,19 +439,16 @@ async def entrosa(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(
-            content=random.choice(ENTROSAS_IMAGES))
+        await interaction.response.send_message(content=random.choice(ENTROSAS_IMAGES))
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao tentar larpar o entrosa."
-        )
+        logger.exception("Erro ao tentar larpar o entrosa.")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui larpar ele "
-                "O pq eu n sei...",
+                "❌ Não consegui larpar ele " "O pq eu n sei...",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="larp",
@@ -501,19 +464,16 @@ async def larp(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(
-            content=random.choice(LARP_IMAGES))
+        await interaction.response.send_message(content=random.choice(LARP_IMAGES))
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao tentar larpar"
-        )
+        logger.exception("Erro ao tentar larpar")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui larpar"
-                "O pq eu n sei...",
+                "❌ Não consegui larpar" "O pq eu n sei...",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="gado",
@@ -550,7 +510,9 @@ async def gado(
         avaliação = "CACHORRINHO; da tempo de voltar irm"
 
     elif resultadoNum >= 40 and resultadoNum < 49:
-        avaliação = "BRINQUEDO; damn, tu chama ela/ele de 'momoreco' e faz voz de bebê??"
+        avaliação = (
+            "BRINQUEDO; damn, tu chama ela/ele de 'momoreco' e faz voz de bebê??"
+        )
 
     elif resultadoNum < 39:
         avaliação = "PADRÃO; dentro do limite aceitável..."
@@ -562,16 +524,14 @@ async def gado(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao avaliar ele"
-        )
+        logger.exception("Erro ao avaliar ele")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui avaliar ele"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui avaliar ele" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="skill-issue",
@@ -601,7 +561,6 @@ async def skill_issue(
     elif resultadoNum <= 50:
         avaliação = "NÃO :x::x:"
 
-
     resposta = f"{avaliação}\n> {alvo.mention}"
 
     try:
@@ -609,16 +568,14 @@ async def skill_issue(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao avaliar ele"
-        )
+        logger.exception("Erro ao avaliar ele")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui avaliar ele"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui avaliar ele" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="aura",
@@ -642,16 +599,14 @@ async def aura(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao avaliar ele"
-        )
+        logger.exception("Erro ao avaliar ele")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui avaliar ele"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui avaliar ele" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="fofoca",
@@ -677,16 +632,14 @@ async def fofoca(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao contar uma fofoca"
-        )
+        logger.exception("Erro ao contar uma fofoca")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui contar uma fofoca"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui contar uma fofoca" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="noticia",
@@ -703,7 +656,7 @@ async def noticia(
             ephemeral=True,
         )
         return
-    
+
     await guild.chunk(cache=True)
     members = guild.members
 
@@ -722,7 +675,6 @@ async def noticia(
         resposta = f"\n- **{pessoa1}** {ação} {pessoa2} {hora}"
         return resposta
 
-
     noticia = ["**EXTRA, EXTRA:**"]
     for i in range(3):
         noticia.append(gerar_noticia())
@@ -734,16 +686,14 @@ async def noticia(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao contar as noticias"
-        )
+        logger.exception("Erro ao contar as noticias")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui contar as noticias"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui contar as noticias" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="universo",
@@ -767,16 +717,14 @@ async def universo(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao montar um universo"
-        )
+        logger.exception("Erro ao montar um universo")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui montar um universo"
-                "O HTTP zuo no bagulho",
+                "❌ Não consegui montar um universo" "O HTTP zuo no bagulho",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="filme",
@@ -817,6 +765,7 @@ async def filme(
 
     await interaction.response.send_message(resposta)
 
+
 @bot.tree.command(
     name="avaliar",
     description="Avalie se algo é resenha",
@@ -836,15 +785,14 @@ async def avaliar(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao avaliar se é resenha"
-        )
+        logger.exception("Erro ao avaliar se é resenha")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui avaliar",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="curriculum",
@@ -865,14 +813,12 @@ async def curriculum(
     embed = discord.Embed(
         title="📋 Curriculum Vitae",
         description=f"{alvo.mention}\n\n✨ **Aura:** {resultado}\n👀 **Resenha**: {resultado2}",
-        color=discord.Color.blurple()
+        color=discord.Color.blurple(),
     )
 
     embed.set_thumbnail(url=alvo.display_avatar.url)
 
-    embed.set_footer(
-        text=f"Avaliado por {interaction.user.name}"
-    )
+    embed.set_footer(text=f"Avaliado por {interaction.user.name}")
 
     try:
         await interaction.response.send_message(embed=embed)
@@ -885,6 +831,7 @@ async def curriculum(
                 "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="daily",
@@ -901,9 +848,7 @@ async def daily(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao divulgar resenha de hoje"
-        )
+        logger.exception("Erro ao divulgar resenha de hoje")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
@@ -911,9 +856,57 @@ async def daily(
                 ephemeral=True,
             )
 
+
+@bot.tree.command(
+    name="loteria",
+    description="Resenha diária",
+)
+async def loteria(
+    interaction: discord.Interaction,
+):
+    resposta = f"PARABÉNS {interaction.user.mention}, você ACABA de GANHAR: R${random.randint(0, 16700000)} E {random.choice(PRIZES)}!"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception("Erro ao rodar a loteria")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui rodar tua loteria",
+                ephemeral=True,
+            )
+
+
+@bot.tree.command(
+    name="advogado",
+    description="Advogado fornecido pelo estado",
+)
+async def advogado(
+    interaction: discord.Interaction,
+):
+    resposta = f"{random.choice(ADVOGADO_JUIZ)}, {random.choice(ADVOGADO_ARGS)}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception("Erro ao chamar o advogado")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui chamar um advogado pra ti",
+                ephemeral=True,
+            )
+
+
 #
 # GAMES RESENHUDOS
 #
+
 
 @bot.tree.command(
     name="caraoucoroa",
@@ -931,15 +924,14 @@ async def caraoucoroa(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao jogar cara ou coroa"
-        )
+        logger.exception("Erro ao jogar cara ou coroa")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui jogar",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="dado",
@@ -963,15 +955,14 @@ async def dado(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao jogar o dado"
-        )
+        logger.exception("Erro ao jogar o dado")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui jogar o dado",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="advinhar",
@@ -995,9 +986,7 @@ async def advinhar(
             content=resposta,
         )
     except discord.HTTPException:
-        logger.exception(
-            "Erro ao jogar o games"
-        )
+        logger.exception("Erro ao jogar o games")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
@@ -1005,10 +994,9 @@ async def advinhar(
                 ephemeral=True,
             )
 
+
 if __name__ == "__main__":
     if TOKEN:
         bot.run(TOKEN)
     else:
-        logger.warning(
-            "[DEV] Arquivo carregado, token ausente."
-        )
+        logger.warning("[DEV] Arquivo carregado, token ausente.")

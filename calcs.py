@@ -4,9 +4,25 @@ from triggers import *
 
 from datetime import datetime, timezone
 
-LISTONA = SIX_SEVEN_TRIGGERS + RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS + LARP_TRIGGERS + ENTROSA_TRIGGERS
+LISTONA = (
+    SIX_SEVEN_TRIGGERS
+    + RESENHA_TRIGGERS
+    + CEMPILA_TRIGGERS
+    + DEVAGAR_TRIGGERS
+    + JE_TRIGGERS
+    + LARP_TRIGGERS
+    + ENTROSA_TRIGGERS
+)
 
-LISTONA_MAX = (RESENHA_TRIGGERS + CEMPILA_TRIGGERS + DEVAGAR_TRIGGERS + JE_TRIGGERS + LARP_TRIGGERS + ENTROSA_TRIGGERS) * 100
+LISTONA_MAX = (
+    RESENHA_TRIGGERS
+    + CEMPILA_TRIGGERS
+    + DEVAGAR_TRIGGERS
+    + JE_TRIGGERS
+    + LARP_TRIGGERS
+    + ENTROSA_TRIGGERS
+) * 100
+
 
 def calc_resenha(item):
     numeros_resenhas = [67, 41, 505, 13, 22, 14, 24, 69]
@@ -32,6 +48,7 @@ def calc_resenha(item):
                 finally:
                     return f":x::x: NENHUMA RESENHA DETECTADA"
 
+
 def calc_today_resenha():
     resenha = []
 
@@ -43,6 +60,7 @@ def calc_today_resenha():
     resenha.append(LISTONA_MAX[int(str(hoje.year)[2:])])
 
     return " ".join(resenha)
+
 
 def calc_aura(pessoa):
     aura = 0

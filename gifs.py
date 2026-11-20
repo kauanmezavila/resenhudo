@@ -8,6 +8,4 @@ GIFS_RESENHA = [
     "https://c.tenor.com/D2cIrVCGgdwAAAAC/tenor.gif",
 ]
 
-GIFS_CALABRESO = [
-    "https://c.tenor.com/M4T6_KH_GWMAAAAd/tenor.gif"
-]
+GIFS_CALABRESO = ["https://c.tenor.com/M4T6_KH_GWMAAAAd/tenor.gif"]

@@ -77,35 +77,12 @@ CEMPILA_TRIGGERS = [
     "cem pila",
 ]
 
-JE_TRIGGERS = [
-    "jeffrey",
-    "epstein",
-    "jeffrey epstein"
-]
+JE_TRIGGERS = ["jeffrey", "epstein", "jeffrey epstein"]
 
-DEVAGAR_TRIGGERS = [
-    "devagar",
-    "devagar pai"
-]
+DEVAGAR_TRIGGERS = ["devagar", "devagar pai"]
 
-ENTROSA_TRIGGERS = [
-    "entrosa",
-    "entroso",
-    "entrosou",
-    "entrosei"
-]
+ENTROSA_TRIGGERS = ["entrosa", "entroso", "entrosou", "entrosei"]
 
-LARP_TRIGGERS = [
-    "larp",
-    "larpar",
-    "larpei",
-    "larpo"
-]
+LARP_TRIGGERS = ["larp", "larpar", "larpei", "larpo"]
 
-CALABRESO_TRIGGERS = [
-    "calabreso",
-    "calabresa",
-    "calma",
-    "calabresudo",
-    "calabresanha"
-]
+CALABRESO_TRIGGERS = ["calabreso", "calabresa", "calma", "calabresudo", "calabresanha"]

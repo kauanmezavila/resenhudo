@@ -21,10 +21,7 @@ class HealthHandler(BaseHTTPRequestHandler):
 def start_web_server():
     port = int(os.environ.get("PORT", 10000))
 
-    server = ThreadingHTTPServer(
-        ("0.0.0.0", port),
-        HealthHandler
-    )
+    server = ThreadingHTTPServer(("0.0.0.0", port), HealthHandler)
 
     print(f"[WEB] Health server ativo na porta {port}")
 
@@ -35,8 +32,5 @@ def start_web_server():
 
 
 def webStart():
-    thread = threading.Thread(
-        target=start_web_server,
-        daemon=True
-    )
+    thread = threading.Thread(target=start_web_server, daemon=True)
     thread.start()
