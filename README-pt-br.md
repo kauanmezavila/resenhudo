@@ -45,6 +45,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /advinhar    | Joga o jogo de advinhar que número estou pensando          |
 | Comando | /daily       | Uma resenha baseada no dia                                 |
 | Comando | /aura        | Avalia quanta aura alguém tem                              |
+| Comando | /curriculum  | Gera o currículo do membro                                 |
 
 ## Arquitetura
 

@@ -49,6 +49,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /advinhar    | Play the "Guess the number i am thinking"           |
 | Command | /daily       | A resenha based on the day                          |
 | Command | /aura        | Judges hou much aura someone have                   |
+| Command | /curriculum  | Generates a Curriculum Vitae of someone             |
 
 ## Architecture
 
