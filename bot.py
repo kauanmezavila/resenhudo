@@ -906,6 +906,27 @@ async def advogado(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="canon",
+    description="Veja se algo é canon ou filler",
+)
+async def canon(
+    interaction: discord.Interaction,
+):
+    resposta = f"{random.choice(["É canon", "Nah, filler"])}"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception("Erro ao jogar o games")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui pensar em um número",
+                ephemeral=True,
+            )
 
 #
 # GAMES RESENHUDOS
@@ -1002,9 +1023,6 @@ async def advinhar(
     name="8ball",
     description="Use a clássica Bola 8",
 )
-@app_commands.describe(
-    número="O seu número",
-)
 async def bolaoito(
     interaction: discord.Interaction,
 ):
@@ -1019,7 +1037,7 @@ async def bolaoito(
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui pensar em um número",
+                "❌ Não consegui usar ela",
                 ephemeral=True,
             )
 

@@ -54,6 +54,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /advogado    | _"Better Call Resenhudo!"_                          |
 | Command | /quiz        | A simple quiz                                       |
 | Command | /8ball       | The classic 8 ball oracle                           |
+| Command | /canon       | Judges if something is canon or filler              |
 
 ## Architecture
 
@@ -66,6 +67,7 @@ The bot uses discord.py, and, the code uses a modular architecture:
 - [server.py](https://github.com/kauanmezavila/resenhudo/blob/main/server.py) to run on Render
 - [github.py](https://github.com/kauanmezavila/resenhudo/blob/main/github.py) Github data for actions
 - [calcs.py](https://github.com/kauanmezavila/resenhudo/blob/main/calcs.py) calculations for actions
+- [quiz.py](https://github.com/kauanmezavila/resenhudo/blob/main/quiz.py) quiz action
 
 ### **How the bot can stay 24/7 on free tier Render?**
 

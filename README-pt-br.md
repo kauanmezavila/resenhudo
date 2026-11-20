@@ -50,6 +50,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /advogado    | _"Better Call Resenhudo!"_                                 |
 | Comando | /quiz        | Um quiz simples                                            |
 | Comando | /8ball       | A clássica bola oito                                       |
+| Comando | /canon       | Veja se algo é canon ou filler                             |
 
 ## Arquitetura
 
@@ -62,6 +63,7 @@ O bot usa discord.py, e, o código usa uma estrutura modular:
 - [server.py](https://github.com/kauanmezavila/resenhudo/blob/main/server.py) pra rodar no Render
 - [github.py](https://github.com/kauanmezavila/resenhudo/blob/main/github.py) dados do Github para as ações
 - [calcs.py](https://github.com/kauanmezavila/resenhudo/blob/main/calcs.py) cálculos para as ações
+- [quiz.py](https://github.com/kauanmezavila/resenhudo/blob/main/quiz.py) a ação de quiz
 
 ### **Como o bot fica on 24/7 no Render gratuito?**
 
