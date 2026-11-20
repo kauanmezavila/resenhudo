@@ -3,12 +3,14 @@ import random
 import logging
 import requests
 import subprocess
+import asyncio
 from pathlib import Path
 
 import discord
 from dotenv import load_dotenv
 from discord import app_commands
 from discord.ext import commands, tasks
+from nekosbest import Client, APIError, ClientError
 import itertools
 
 from triggers import *
@@ -16,7 +18,7 @@ from gifs import *
 from data import *
 from github import *
 from calcs import *
-
+from quiz import *
 
 load_dotenv()
 
@@ -63,6 +65,8 @@ bot = Bot(
     command_prefix="!",
     intents=intents,
 )
+
+setup_quiz(bot)
 
 statuses = itertools.cycle(
     [
@@ -994,6 +998,55 @@ async def advinhar(
                 ephemeral=True,
             )
 
+
+#
+# REAÇÕES
+#
+
+@bot.tree.command(name="reagir", description="Reaja a alguém!")
+@app_commands.describe(
+    usuario="Quem vai receber a reação",
+    tipo="Tipo de reação"
+)
+@app_commands.choices(tipo=[
+    app_commands.Choice(name="Abraçar", value="hug"),
+    app_commands.Choice(name="Piscar", value="wink"),
+    app_commands.Choice(name="Dançar", value="dance"),
+    app_commands.Choice(name="Dar tapinha", value="pat"),
+])
+async def reagir(
+    interaction: discord.Interaction,
+    usuario: discord.Member,
+    tipo: app_commands.Choice[str]
+):
+
+    await interaction.response.defer()
+
+    try:
+        async with Client() as client:
+            images = await client.get_image(tipo.value)
+
+        if not images:
+            await interaction.followup.send("Não encontrei uma imagem para essa reação.")
+            return
+
+        embed = discord.Embed(
+            description=f"{interaction.user.mention} reagiu a {usuario.mention}!"
+        )
+
+        embed.set_image(url=images[0].url)
+
+        await interaction.followup.send(embed=embed)
+
+    except APIError as error:
+        await interaction.followup.send(
+            f"Erro na API: {error.code}"
+        )
+
+    except ClientError:
+        await interaction.followup.send(
+            "Não consegui conectar ao Nekos.best."
+        )
 
 if __name__ == "__main__":
     if TOKEN:

@@ -48,6 +48,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /curriculum  | Gera o currículo do membro                                 |
 | Comando | /noticia     | Faz notícias absurdas dos membros do servidor              |
 | Comando | /advogado    | _"Better Call Resenhudo!"_                                 |
+| Comando | /quiz        | Um quiz simples                                            |
 
 ## Arquitetura
 

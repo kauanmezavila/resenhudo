@@ -52,6 +52,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /curriculum  | Generates a Curriculum Vitae of someone             |
 | Command | /noticia     | Makes absurd news about the server members          |
 | Command | /advogado    | _"Better Call Resenhudo!"_                          |
+| Command | /quiz        | A simple quiz                                       |
 
 ## Architecture
 

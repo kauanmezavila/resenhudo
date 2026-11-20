@@ -287,3 +287,852 @@ ADVOGADO_ARGS = [
     "chamo para o banco das testemunhas o fantasma que não mente jamais (que só pode ser visto e ouvido por mim)\n- Fantasma que não mente jamais, pode ver o culpado aqui?\n- Sim? E pode apontar ele para nós?\n- NÃO APONTE PARA MIM SEU-",
     "ado ado, quem não acha ele inocente é viado",
 ]
+
+
+QUIZZES = [
+    # =========================
+    # PROGRAMAÇÃO
+    # =========================
+    {
+        "question": "Qual linguagem é executada pelo Node.js?",
+        "options": ["Python", "JavaScript", "C++", "Java"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "O que significa HTML?",
+        "options": ["HyperText Markup Language", "HighText Machine Language", "HyperTool Modern Language", "HomeText Markup Logic"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual símbolo é usado para comentários de uma linha em Python?",
+        "options": ["//", "#", "<!--", "/*"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual comando instala pacotes Python pelo pip?",
+        "options": ["pip install", "npm install", "python get", "package add"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "O que significa API?",
+        "options": ["Application Programming Interface", "Advanced Program Internet", "Automated Python Integration", "Application Process Input"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual estrutura armazena pares de chave e valor em Python?",
+        "options": ["List", "Tuple", "Dictionary", "Set"],
+        "answer": 2,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual palavra-chave declara uma variável constante em JavaScript?",
+        "options": ["var", "let", "const", "static"],
+        "answer": 2,
+        "category": "Programação"
+    },
+    {
+        "question": "O que significa SQL?",
+        "options": ["Structured Query Language", "Simple Question Logic", "System Query Link", "Standard Quick Language"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual método adiciona um elemento ao final de uma lista Python?",
+        "options": ["add()", "append()", "push()", "insertEnd()"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "O que é um loop infinito?",
+        "options": ["Um loop que executa uma única vez", "Um loop sem condição de parada efetiva", "Um loop que nunca começa", "Um loop que executa apenas números pares"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual biblioteca é bastante usada para criar bots Discord em Python?",
+        "options": ["discord.py", "Flask", "NumPy", "Pandas"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual comando inicia um repositório Git?",
+        "options": ["git start", "git init", "git create", "git new"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "O que significa JSON?",
+        "options": ["JavaScript Object Notation", "Java Standard Object Network", "Joined System Object Name", "JavaScript Online Node"],
+        "answer": 0,
+        "category": "Programação"
+    },
+    {
+        "question": "Qual é o resultado de 10 % 3 em Python?",
+        "options": ["3", "1", "0", "2"],
+        "answer": 1,
+        "category": "Programação"
+    },
+    {
+        "question": "O que é uma função?",
+        "options": ["Um arquivo de texto", "Um bloco reutilizável de código", "Um tipo de banco de dados", "Um sistema operacional"],
+        "answer": 1,
+        "category": "Programação"
+    },
+
+    # =========================
+    # TECNOLOGIA
+    # =========================
+    {
+        "question": "O que significa CPU?",
+        "options": ["Central Processing Unit", "Computer Power Utility", "Core Program Unit", "Central Peripheral User"],
+        "answer": 0,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual componente é conhecido como memória volátil?",
+        "options": ["SSD", "HD", "RAM", "ROM"],
+        "answer": 2,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual sistema operacional é baseado no kernel Linux?",
+        "options": ["Windows 11", "Ubuntu", "macOS", "iOS"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "O que significa GPU?",
+        "options": ["General Processing Unit", "Graphics Processing Unit", "Global Program Utility", "Graphical Power User"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual protocolo é utilizado para transferir páginas web com segurança?",
+        "options": ["FTP", "HTTP", "HTTPS", "SMTP"],
+        "answer": 2,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual empresa desenvolve o Android?",
+        "options": ["Apple", "Google", "Microsoft", "Intel"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "O que é um endereço IP?",
+        "options": ["Identificador de rede de um dispositivo", "Senha do computador", "Nome de um navegador", "Tipo de processador"],
+        "answer": 0,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual unidade representa uma taxa de transferência de dados?",
+        "options": ["GHz", "Mbps", "Volts", "Watts"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "O que é BIOS/UEFI?",
+        "options": ["Um navegador", "Firmware de inicialização do computador", "Um editor de código", "Um tipo de memória RAM"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual destes é um banco de dados relacional?",
+        "options": ["PostgreSQL", "Redis", "MongoDB", "Memcached"],
+        "answer": 0,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "O que significa SSD?",
+        "options": ["Solid State Drive", "System Storage Device", "Super Speed Disk", "Standard System Data"],
+        "answer": 0,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual porta é a padrão do HTTP?",
+        "options": ["21", "22", "80", "443"],
+        "answer": 2,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual porta é normalmente utilizada pelo SSH?",
+        "options": ["25", "22", "53", "8080"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "O que é código aberto (open source)?",
+        "options": ["Software sem código", "Software cujo código-fonte pode ser acessado conforme sua licença", "Software que só funciona offline", "Software obrigatoriamente gratuito"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+    {
+        "question": "Qual destas empresas desenvolve o processador Ryzen?",
+        "options": ["Intel", "AMD", "NVIDIA", "Qualcomm"],
+        "answer": 1,
+        "category": "Tecnologia"
+    },
+
+    # =========================
+    # MEMES
+    # =========================
+    {
+        "question": "O que geralmente significa 'F' nos comentários de memes?",
+        "options": ["Festa", "Respeito ou homenagem", "Falha no Wi-Fi", "Felicidade"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'POV'?",
+        "options": ["Point of View", "Power of Video", "Picture of Victory", "Player Online Version"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "O meme 'This is fine' geralmente representa qual situação?",
+        "options": ["Uma vitória perfeita", "Alguém tranquilo em meio ao caos", "Uma festa surpresa", "Uma situação extremamente engraçada sem problemas"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "Qual animal ficou famoso pelo meme 'Doge'?",
+        "options": ["Gato", "Shiba Inu", "Capivara", "Pato"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'LOL' na internet?",
+        "options": ["Lots of Love", "Laughing Out Loud", "League of Legends", "Look Online"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'cringe'?",
+        "options": ["Algo constrangedor", "Algo muito caro", "Uma vitória", "Uma atualização"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "O meme 'Distracted Boyfriend' mostra principalmente o quê?",
+        "options": ["Um cachorro correndo", "Um homem olhando para outra mulher enquanto está acompanhado", "Uma pessoa jogando futebol", "Um casal cozinhando"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que geralmente significa 'based' na cultura da internet?",
+        "options": ["Uma opinião considerada autêntica ou corajosa", "Uma pessoa perdida", "Uma publicação patrocinada", "Uma notícia falsa"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "Qual é a ideia central do meme 'Rickroll'?",
+        "options": ["Uma pegadinha que leva ao clipe de Never Gonna Give You Up", "Um jogo de corrida", "Uma dança viral", "Uma montagem de gatos"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'ratio' em uma discussão online?",
+        "options": ["Uma publicação receber uma proporção desfavorável de interações", "Um vídeo ficar privado", "Um perfil ganhar seguidores", "Uma conta ser verificada"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "O que representa o meme 'Gigachad'?",
+        "options": ["Um personagem associado a confiança exagerada e masculinidade idealizada", "Um personagem de Minecraft", "Um robô de limpeza", "Um cantor famoso"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'skill issue'?",
+        "options": ["Problema de habilidade", "Problema de internet", "Falta de armazenamento", "Erro de atualização"],
+        "answer": 0,
+        "category": "Memes"
+    },
+    {
+        "question": "Qual é a reação mais associada ao meme 'Surprised Pikachu'?",
+        "options": ["Tristeza", "Surpresa diante de algo previsível", "Sono", "Raiva extrema"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'W' na gíria da internet?",
+        "options": ["Windows", "Win ou vitória", "Warning", "Wrong"],
+        "answer": 1,
+        "category": "Memes"
+    },
+    {
+        "question": "O que significa 'L' na gíria da internet?",
+        "options": ["Like", "Loss ou derrota", "Level", "Legend"],
+        "answer": 1,
+        "category": "Memes"
+    },
+
+    # =========================
+    # BRAINROT
+    # =========================
+    {
+        "question": "Qual personagem ficou famoso pela frase 'Tralalero Tralala'?",
+        "options": ["Um tubarão com tênis", "Um macaco de óculos", "Um gato astronauta", "Um jacaré de terno"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual é o nome do personagem italiano brainrot que mistura um jacaré com um bombardeiro?",
+        "options": ["Ballerina Cappuccina", "Bombardiro Crocodilo", "Tung Tung Tung Sahur", "Lirili Larila"],
+        "answer": 1,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual personagem brainrot é representado por um tronco de madeira com aparência humanoide?",
+        "options": ["Tung Tung Tung Sahur", "Brr Brr Patapim", "Trippi Troppi", "Chimpanzini Bananini"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual personagem é associado a uma bailarina com cabeça de cappuccino?",
+        "options": ["Lirili Larila", "Ballerina Cappuccina", "Bombombini Gusini", "Frigo Camelo"],
+        "answer": 1,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que é 'brainrot' como gíria da internet?",
+        "options": ["Um tipo de vírus de computador", "Conteúdo extremamente repetitivo ou absurdo que domina a atenção", "Uma linguagem de programação", "Um gênero musical clássico"],
+        "answer": 1,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual personagem brainrot mistura um elefante com um cacto?",
+        "options": ["Lirili Larila", "Tralalero Tralala", "Brr Brr Patapim", "Bombardiro Crocodilo"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que costuma caracterizar os vídeos de Italian Brainrot?",
+        "options": ["Documentários científicos", "Personagens absurdos com nomes e narrações nonsense", "Tutoriais de culinária", "Notícias esportivas"],
+        "answer": 1,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual destes nomes pertence ao universo Italian Brainrot?",
+        "options": ["Chimpanzini Bananini", "Optimus Prime", "Sonic.exe", "Steve Jobsini"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual personagem brainrot mistura um tubarão com uma criatura voadora?",
+        "options": ["Tralalero Tralala", "Ballerina Cappuccina", "Tung Tung Tung Sahur", "Lirili Larila"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que significa 'aura points' nos memes?",
+        "options": ["Pontos de experiência em programação", "Uma pontuação fictícia de estilo ou presença", "Dinheiro virtual", "Uma medida científica"],
+        "answer": 1,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que significa 'mewing' na cultura de memes?",
+        "options": ["Uma pose ou prática associada à mandíbula", "Uma dança de videogame", "Um tipo de código", "Um personagem de anime"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual palavra é frequentemente usada como expressão nonsense em memes brainrot?",
+        "options": ["Skibidi", "Compiler", "Firewall", "Kernel"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que significa 'rizz' na gíria da internet?",
+        "options": ["Carisma ou habilidade de flertar", "Velocidade de conexão", "Uma dança", "Um tipo de computador"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "Qual personagem é conhecido pelo nome 'Bombombini Gusini'?",
+        "options": ["Uma criatura com aparência de ganso e avião", "Um tubarão com tênis", "Um macaco com banana", "Um robô de cozinha"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+    {
+        "question": "O que significa 'sigma' em muitos memes atuais?",
+        "options": ["Uma pessoa retratada como independente e autossuficiente", "Uma unidade de armazenamento", "Um personagem de Minecraft", "Um comando Linux"],
+        "answer": 0,
+        "category": "Brainrot"
+    },
+
+    # =========================
+    # RESENHA
+    # =========================
+    {
+        "question": "Quando alguém fala 'é dentro', geralmente quer dizer o quê?",
+        "options": ["Que vai embora", "Que topa a ideia", "Que está com fome", "Que perdeu o jogo"],
+        "answer": 1,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa chamar alguém de 'calabreso' na resenha?",
+        "options": ["Uma provocação ou apelido humorístico", "Um elogio formal", "Uma profissão", "Uma comida japonesa"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "Se alguém manda um 'confia', qual pode ser a intenção irônica?",
+        "options": ["Demonstrar certeza absoluta", "Sugerir desconfiança de forma humorística", "Pedir ajuda", "Encerrar uma conversa"],
+        "answer": 1,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'amassou' na linguagem informal?",
+        "options": ["Foi muito bem em algo", "Quebrou um objeto", "Ficou parado", "Desistiu de tudo"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "Quando alguém diz 'tá pago', o que geralmente significa?",
+        "options": ["A situação já está resolvida ou compensada", "A conta está atrasada", "O jogo foi cancelado", "A pessoa está sem dinheiro"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'meter o louco'?",
+        "options": ["Agir de maneira inesperada ou fingir não saber de algo", "Dormir cedo", "Estudar programação", "Viajar sem sair de casa"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "Quando alguém fala 'sai do fake', está sugerindo o quê?",
+        "options": ["Que a pessoa está usando uma identidade falsa ou perfil alternativo", "Que a pessoa desligue o computador", "Que alguém saia de um jogo", "Que a conversa acabou"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'de milhões' na gíria brasileira?",
+        "options": ["Algo excelente ou muito bom", "Algo extremamente caro", "Algo muito antigo", "Algo sem sentido"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "Se alguém responde 'lá ele', qual costuma ser a intenção?",
+        "options": ["Evitar uma interpretação maliciosa de uma frase", "Concordar formalmente", "Pedir silêncio", "Começar uma partida"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'intankável'?",
+        "options": ["Algo impossível de aguentar ou acreditar", "Algo muito fácil", "Algo muito caro", "Algo muito rápido"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'ficar de xereca' na gíria de memes?",
+        "options": ["Ficar confuso ou sem reação", "Ganhar uma partida", "Fazer uma compra", "Dormir profundamente"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "Quando alguém fala 'o pai tá on', o que quer transmitir?",
+        "options": ["Que está disponível ou preparado", "Que está sem internet", "Que vai dormir", "Que perdeu o celular"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'flopar'?",
+        "options": ["Fazer muito sucesso", "Não ter o sucesso ou a repercussão esperada", "Ganhar seguidores", "Publicar uma notícia"],
+        "answer": 1,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'dar exposed'?",
+        "options": ["Expor informações ou atitudes de alguém", "Criar uma conta", "Apagar uma mensagem", "Mudar de servidor"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+    {
+        "question": "O que significa 'entrosar'?",
+        "options": ["Criar conexão e interação com um grupo", "Ficar isolado", "Desinstalar um aplicativo", "Perder uma discussão"],
+        "answer": 0,
+        "category": "Resenha"
+    },
+
+    # =========================
+    # GAMES
+    # =========================
+    {
+        "question": "Qual empresa criou Minecraft?",
+        "options": ["Valve", "Mojang", "Epic Games", "Ubisoft"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual é o nome do protagonista de The Legend of Zelda?",
+        "options": ["Zelda", "Link", "Ganondorf", "Mario"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Em qual jogo existe a ilha chamada Dust II?",
+        "options": ["Valorant", "Counter-Strike", "Fortnite", "Overwatch"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual empresa desenvolve Fortnite?",
+        "options": ["EA", "Epic Games", "Riot Games", "Rockstar"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual personagem é o mascote da Nintendo?",
+        "options": ["Sonic", "Mario", "Crash", "Master Chief"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual jogo apresenta o modo Battle Royale chamado Warzone?",
+        "options": ["Call of Duty", "Minecraft", "The Sims", "Rocket League"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual é o nome do protagonista de Half-Life?",
+        "options": ["Gordon Freeman", "John Marston", "Arthur Morgan", "Joel Miller"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual jogo é conhecido por sua frase 'The cake is a lie'?",
+        "options": ["Portal", "Doom", "Skyrim", "Terraria"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual empresa desenvolve League of Legends?",
+        "options": ["Blizzard", "Riot Games", "Valve", "Bungie"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Em Minecraft, qual criatura explode perto do jogador?",
+        "options": ["Enderman", "Creeper", "Skeleton", "Villager"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual é o nome do protagonista de Red Dead Redemption 2?",
+        "options": ["Arthur Morgan", "John Wick", "Niko Bellic", "Trevor Philips"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual jogo tem personagens chamados impostores e tripulantes?",
+        "options": ["Among Us", "Fall Guys", "Brawlhalla", "Terraria"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual é a moeda utilizada em Roblox?",
+        "options": ["V-Bucks", "Robux", "Minecoins", "Gems"],
+        "answer": 1,
+        "category": "Games"
+    },
+    {
+        "question": "Qual jogo é conhecido por seu sistema de construção de blocos e mineração?",
+        "options": ["Minecraft", "FIFA", "Valorant", "Apex Legends"],
+        "answer": 0,
+        "category": "Games"
+    },
+    {
+        "question": "Qual personagem de Sonic é conhecido por sua cor azul e velocidade?",
+        "options": ["Tails", "Knuckles", "Sonic", "Shadow"],
+        "answer": 2,
+        "category": "Games"
+    },
+
+    # =========================
+    # CULTURA GERAL
+    # =========================
+    {
+        "question": "Qual é a capital do Japão?",
+        "options": ["Seul", "Pequim", "Tóquio", "Bangkok"],
+        "answer": 2,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual planeta é conhecido como planeta vermelho?",
+        "options": ["Marte", "Vênus", "Júpiter", "Saturno"],
+        "answer": 0,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Quantos lados tem um hexágono?",
+        "options": ["Cinco", "Seis", "Sete", "Oito"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o maior oceano da Terra?",
+        "options": ["Atlântico", "Índico", "Ártico", "Pacífico"],
+        "answer": 3,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o símbolo químico do ouro?",
+        "options": ["Ag", "Au", "Fe", "O"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Quem escreveu Dom Casmurro?",
+        "options": ["José de Alencar", "Machado de Assis", "Carlos Drummond", "Clarice Lispector"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o maior planeta do Sistema Solar?",
+        "options": ["Terra", "Saturno", "Júpiter", "Netuno"],
+        "answer": 2,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Em qual continente fica o Egito?",
+        "options": ["Ásia", "África", "Europa", "Oceania"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o resultado de 12 × 12?",
+        "options": ["124", "144", "132", "154"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o idioma oficial do Brasil?",
+        "options": ["Espanhol", "Português", "Inglês", "Francês"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual animal é conhecido como o maior mamífero do mundo?",
+        "options": ["Elefante africano", "Baleia-azul", "Girafa", "Hipopótamo"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é a fórmula química da água?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Quantos minutos existem em duas horas?",
+        "options": ["100", "120", "140", "160"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual país tem formato frequentemente comparado a uma bota?",
+        "options": ["Grécia", "Itália", "Portugal", "Noruega"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+    {
+        "question": "Qual é o nome da galáxia onde está o Sistema Solar?",
+        "options": ["Andrômeda", "Via Láctea", "Sombrero", "Olho Negro"],
+        "answer": 1,
+        "category": "Cultura Geral"
+    },
+
+    # =========================
+    # INTERNET E REDES SOCIAIS
+    # =========================
+    {
+        "question": "O que significa DM?",
+        "options": ["Direct Message", "Digital Mode", "Data Memory", "Download Manager"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual plataforma é conhecida por vídeos curtos e verticais?",
+        "options": ["TikTok", "GitHub", "Reddit", "Wikipedia"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa FAQ?",
+        "options": ["Frequently Asked Questions", "Fast Access Query", "File Application Queue", "First Answer Quality"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual plataforma é conhecida por hospedar repositórios Git?",
+        "options": ["Pinterest", "GitHub", "Twitch", "Discord"],
+        "answer": 1,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa viralizar?",
+        "options": ["Um conteúdo se espalhar rapidamente", "Um computador pegar vírus", "Uma conta ser apagada", "Um vídeo perder qualidade"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual plataforma é bastante conhecida por transmissões ao vivo de games?",
+        "options": ["Twitch", "Notion", "Figma", "Stack Overflow"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa 'link na bio'?",
+        "options": ["Um endereço disponível na descrição do perfil", "Um link enviado por e-mail", "Um código de programação", "Uma senha temporária"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual rede social utiliza comunidades chamadas subreddits?",
+        "options": ["Instagram", "Reddit", "Facebook", "LinkedIn"],
+        "answer": 1,
+        "category": "Internet"
+    },
+    {
+        "question": "O que é um algoritmo de recomendação?",
+        "options": ["Um sistema que sugere conteúdos com base em critérios e dados", "Um antivírus", "Um tipo de processador", "Um formato de imagem"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa 'spam'?",
+        "options": ["Mensagens repetitivas ou indesejadas", "Uma atualização de sistema", "Um tipo de senha", "Uma chamada de vídeo"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual plataforma é principalmente associada a vídeos longos e canais?",
+        "options": ["YouTube", "Discord", "GitHub", "Trello"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa 'thread' em uma rede social?",
+        "options": ["Uma sequência de publicações conectadas", "Uma imagem de perfil", "Uma mensagem apagada", "Uma chamada de áudio"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que é phishing?",
+        "options": ["Uma tentativa de enganar alguém para obter informações", "Um sistema de backup", "Um tipo de conexão", "Uma linguagem de programação"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "Qual destas plataformas é conhecida por mensagens e servidores de comunidades?",
+        "options": ["Discord", "Excel", "Photoshop", "Blender"],
+        "answer": 0,
+        "category": "Internet"
+    },
+    {
+        "question": "O que significa AFK?",
+        "options": ["Away From Keyboard", "Access For Knowledge", "Always Fast Key", "Available For Keep"],
+        "answer": 0,
+        "category": "Internet"
+    },
+
+    # =========================
+    # DESENVOLVIMENTO E LÓGICA
+    # =========================
+    {
+        "question": "O que é debugging?",
+        "options": ["Encontrar e corrigir erros no código", "Criar uma interface gráfica", "Instalar um sistema operacional", "Compactar arquivos"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "Qual é a função do comando git pull?",
+        "options": ["Enviar alterações locais", "Buscar e integrar alterações do repositório remoto", "Apagar o repositório", "Criar uma branch"],
+        "answer": 1,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que significa IDE?",
+        "options": ["Integrated Development Environment", "Internal Data Engine", "Internet Development Extension", "Integrated Design Element"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é um endpoint em uma API?",
+        "options": ["Um endereço ou rota que permite acessar um recurso ou operação", "Um banco de dados inteiro", "Uma variável global", "Um tipo de linguagem"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "Qual método HTTP costuma ser utilizado para obter dados?",
+        "options": ["POST", "DELETE", "GET", "PATCH"],
+        "answer": 2,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "Qual método HTTP é normalmente utilizado para criar um recurso?",
+        "options": ["GET", "POST", "HEAD", "OPTIONS"],
+        "answer": 1,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é uma branch no Git?",
+        "options": ["Uma linha independente de desenvolvimento", "Um arquivo de configuração", "Um servidor remoto", "Um tipo de commit"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que significa CRUD?",
+        "options": ["Create, Read, Update, Delete", "Compile, Run, Upload, Download", "Code, Review, Use, Deploy", "Create, Remove, Undo, Debug"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "Qual status HTTP representa uma requisição bem-sucedida?",
+        "options": ["200", "404", "500", "301"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que significa o status HTTP 404?",
+        "options": ["Acesso autorizado", "Recurso não encontrado", "Erro interno do servidor", "Requisição bem-sucedida"],
+        "answer": 1,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é uma variável booleana?",
+        "options": ["Uma variável que representa verdadeiro ou falso", "Uma lista de textos", "Um número decimal", "Um arquivo executável"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é recursão?",
+        "options": ["Uma função que chama a si mesma", "Um loop que só executa uma vez", "Uma variável sem valor", "Uma consulta SQL"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "Qual ferramenta é utilizada para containers?",
+        "options": ["Docker", "Figma", "Audacity", "GIMP"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é um ambiente virtual Python?",
+        "options": ["Um espaço isolado para dependências de um projeto", "Uma máquina virtual obrigatoriamente completa", "Um editor de texto", "Um banco de dados"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    },
+    {
+        "question": "O que é uma exceção em programação?",
+        "options": ["Um evento que interrompe o fluxo normal de execução", "Uma variável constante", "Um comentário especial", "Uma biblioteca externa"],
+        "answer": 0,
+        "category": "Desenvolvimento"
+    }
+]
