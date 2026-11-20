@@ -998,6 +998,30 @@ async def advinhar(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="8ball",
+    description="Use a clássica Bola 8",
+)
+@app_commands.describe(
+    número="O seu número",
+)
+async def bolaoito(
+    interaction: discord.Interaction,
+):
+    resposta = f"Aparece na Bola 8 Mágica: [*{random.choice(BOLA_OITO)}*]"
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception("Erro ao jogar o games")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui pensar em um número",
+                ephemeral=True,
+            )
 
 #
 # REAÇÕES

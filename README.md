@@ -53,6 +53,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /noticia     | Makes absurd news about the server members          |
 | Command | /advogado    | _"Better Call Resenhudo!"_                          |
 | Command | /quiz        | A simple quiz                                       |
+| Command | /8ball       | The classic 8 ball oracle                           |
 
 ## Architecture
 

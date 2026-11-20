@@ -1136,3 +1136,13 @@ QUIZZES = [
         "category": "Desenvolvimento"
     }
 ]
+
+BOLA_OITO = [
+    "Com certeza",
+    "Talvez",
+    "Não",
+    "Tenta a sorte",
+    "Não sei",
+    "Claramente",
+    "Discordo"
+]
