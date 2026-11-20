@@ -47,6 +47,7 @@ class Bot(commands.Bot):
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = Bot(
     command_prefix="!",
@@ -683,6 +684,63 @@ async def fofoca(
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui contar uma fofoca"
+                "O HTTP zuo no bagulho",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="noticia",
+    description="Conte uma fofoca",
+)
+async def noticia(
+    interaction: discord.Interaction,
+):
+
+    guild = interaction.guild
+    if guild is None:
+        await interaction.response.send_message(
+            "❌ Este comando só pode ser usado em um servidor.",
+            ephemeral=True,
+        )
+        return
+    
+    await guild.chunk(cache=True)
+    members = guild.members
+
+    result = []
+
+    for member in members:
+        result.append(f"{member.display_name} ({member.name})")
+
+    def gerar_noticia():
+        pessoa1 = random.choice(result)
+        pessoa2 = random.choice(FOFOCA_NOME)
+
+        ação = random.choice(FOFOCA_AÇÃO)
+
+        hora = random.choice(FOFOCA_HORA)
+        resposta = f"\n- **{pessoa1}** {ação} {pessoa2} {hora}"
+        return resposta
+
+
+    noticia = ["**EXTRA, EXTRA:**"]
+    for i in range(3):
+        noticia.append(gerar_noticia())
+
+    resposta = "".join(noticia)
+
+    try:
+        await interaction.response.send_message(
+            content=resposta,
+        )
+    except discord.HTTPException:
+        logger.exception(
+            "Erro ao contar as noticias"
+        )
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui contar as noticias"
                 "O HTTP zuo no bagulho",
                 ephemeral=True,
             )

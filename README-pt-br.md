@@ -46,6 +46,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /daily       | Uma resenha baseada no dia                                 |
 | Comando | /aura        | Avalia quanta aura alguém tem                              |
 | Comando | /curriculum  | Gera o currículo do membro                                 |
+| Comando | /noticia     | Faz notícias absurdas dos membros do servidor              |
 
 ## Arquitetura
 
