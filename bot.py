@@ -634,7 +634,7 @@ async def aura(
 
     resultado = calc_aura(alvo)
 
-    resposta = f"{alvo.mention}: {resultado}"
+    resposta = f"{alvo.mention}: {resultado} de aura ✨"
 
     try:
         await interaction.response.send_message(
@@ -649,45 +649,6 @@ async def aura(
             await interaction.response.send_message(
                 "❌ Não consegui avaliar ele"
                 "O HTTP zuo no bagulho",
-                ephemeral=True,
-            )
-
-@bot.tree.command(
-    name="curriculum",
-    description="Gere um curriculum vitae resenha",
-)
-@app_commands.describe(
-    user="Quem vai receber o currículo",
-)
-async def curriculum(
-    interaction: discord.Interaction,
-    user: discord.Member | None = None,
-):
-    alvo = user or interaction.user
-
-    resultado = calc_aura(alvo)
-
-    embed = discord.Embed(
-        title="📋 Curriculum de Aura",
-        description=f"{alvo.mention}\n\n✨ **Aura:** {resultado}",
-        color=discord.Color.blurple()
-    )
-
-    embed.set_thumbnail(url=alvo.display_avatar.url)
-
-    embed.set_footer(
-        text=f"Avaliado por {interaction.user.name}"
-    )
-
-    try:
-        await interaction.response.send_message(embed=embed)
-
-    except discord.HTTPException:
-        logger.exception("Erro ao avaliar usuário")
-
-        if not interaction.response.is_done():
-            await interaction.response.send_message(
-                "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
                 ephemeral=True,
             )
 
@@ -824,6 +785,46 @@ async def avaliar(
         if not interaction.response.is_done():
             await interaction.response.send_message(
                 "❌ Não consegui avaliar",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="curriculum",
+    description="Gere um curriculum vitae resenha",
+)
+@app_commands.describe(
+    user="Quem vai receber o currículo",
+)
+async def curriculum(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    resultado = calc_aura(alvo)
+    resultado2 = calc_resenha(str(alvo))
+
+    embed = discord.Embed(
+        title="📋 Curriculum Vitae",
+        description=f"{alvo.mention}\n\n✨ **Aura:** {resultado}\n👀 **Resenha**: {resultado2}",
+        color=discord.Color.blurple()
+    )
+
+    embed.set_thumbnail(url=alvo.display_avatar.url)
+
+    embed.set_footer(
+        text=f"Avaliado por {interaction.user.name}"
+    )
+
+    try:
+        await interaction.response.send_message(embed=embed)
+
+    except discord.HTTPException:
+        logger.exception("Erro ao avaliar usuário")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
                 ephemeral=True,
             )
 
