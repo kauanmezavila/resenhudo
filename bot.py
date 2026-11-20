@@ -1076,7 +1076,7 @@ async def reagir(
             description=f"{interaction.user.mention} reagiu a {usuario.mention}!"
         )
 
-        embed.set_image(url=images[0].url)
+        embed.set_image(url=images.url) # type: ignore
 
         await interaction.followup.send(embed=embed)
 
