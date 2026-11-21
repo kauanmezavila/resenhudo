@@ -246,6 +246,7 @@ UNIVERSO_TAMANHO = [
     "infinito",
     "pequeno",
     "menor que uma casa",
+    "médio"
 ]
 
 UNIVERSO_SITUAÇÃO = [
@@ -270,22 +271,26 @@ UNIVERSO_PESSOAS = [
     "22 pessoas",
 ]
 
-PRIZES = ["UM PORCO", "500 CABEÇAS DE GADO", "UM IATE", "5 FARDOS de SKOL"]
+ZPRIZES = ["UM PORCO", "500 CABEÇAS DE GADO", "UM CHEVETTE", "3 BARRIS DE GUARAPA", "UM VALE REFEIÇÃO NO BOM PRATO"]
+FPRIZES = ["PESTE BUBÔNICA", "UMA AMANTE COM 7 FILHOS (todos de pais diferentes)", "UMA GAROTA CONFUSA", "IMPOSTO DE RENDA MAL DECLARADO", "EX PEDINDO EXAME DE DNA DO FILHO (o atual dela sumiu)"]
 
 ADVOGADO_JUIZ = [
     "Merendíssimo",
     "Meretríssimo",
     "Aurudíssimo",
     "Resenhíssimo",
+    "Desocupadíssimo",
+    "Vossa incompetência",
 ]
 
 ADVOGADO_ARGS = [
     "o que a parte deseja está deveras flácido",
-    "minha mãe disse que é mentira",
     "quem está mentindo ta com a mão amarela",
     "ngm te perguntou nd kakakakakakak",
     "chamo para o banco das testemunhas o fantasma que não mente jamais (que só pode ser visto e ouvido por mim)\n- Fantasma que não mente jamais, pode ver o culpado aqui?\n- Sim? E pode apontar ele para nós?\n- NÃO APONTE PARA MIM SEU-",
-    "ado ado, quem não acha ele inocente é viado",
+    "ado ado ado, quem não acha ele inocente é viado",
+    "o réu jurou de dedinho que não fez nada",
+    "convoco adiamento devido o jogo da Libertadores que ocorrerá daqui 5 minutos"
 ]
 
 

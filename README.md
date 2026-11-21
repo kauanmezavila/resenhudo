@@ -55,6 +55,8 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | Command | /quiz        | A simple quiz                                       |
 | Command | /8ball       | The classic 8 ball oracle                           |
 | Command | /canon       | Judges if something is canon or filler              |
+| Command | /vocêprefere | A simple would you rather game                      |
+| Command | /kind        | A really kind phrase                                |
 
 ## Architecture
 

@@ -41,7 +41,7 @@ class QuizView(discord.ui.View):
                 correct = self.question["options"][
                     self.question["answer"]
                 ]
-                result = f"Errou! A resposta era **{correct}**."
+                result = f"Errou otário; A resposta era **{correct}**."
 
             for item in self.children:
                 if isinstance(item, discord.ui.Button):
@@ -78,7 +78,7 @@ def setup_quiz(bot):
         question = random.choice(QUIZZES)
 
         embed = discord.Embed(
-            title="🧠 Quiz do Resenhudo",
+            title="🌽 Show do grande milho",
             description=question["question"],
             color=discord.Color.blurple()
         )

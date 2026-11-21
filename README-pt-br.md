@@ -51,6 +51,8 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | Comando | /quiz        | Um quiz simples                                            |
 | Comando | /8ball       | A clássica bola oito                                       |
 | Comando | /canon       | Veja se algo é canon ou filler                             |
+| Comando | /vocêprefere | Um simples jogo de você prefere                            |
+| Comando | /kind        | Uma frase gentil                                           |
 
 ## Arquitetura
 

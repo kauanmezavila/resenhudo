@@ -214,6 +214,62 @@ async def luck(interaction: discord.Interaction):
         ephemeral=True,
     )
 
+@bot.tree.command(
+    name="kind",
+    description="Uma frase gentil :)",
+)
+async def kind(interaction: discord.Interaction):
+    def fortune():
+        url = "https://dumbapis.com/compliment"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["compliment"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    texto = f"""**Uma frase, para VOCÊ**
+> {fortune()}
+"""
+
+    await interaction.response.send_message(
+        texto,
+        ephemeral=True,
+    )
+
+@bot.tree.command(
+    name="vocêprefere",
+    description="O que você prefere?",
+)
+async def vocêprefere(interaction: discord.Interaction):
+    def fortune():
+        url = "https://dumbapis.com/would-you-rather"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["question"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    texto = f"""{fortune()}"""
+
+    await interaction.response.send_message(
+        texto,
+        ephemeral=True,
+    )
+
 
 @bot.tree.command(
     name="info",
@@ -443,13 +499,13 @@ async def entrosa(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(content=random.choice(ENTROSAS_IMAGES))
+        await interaction.response.send_message(content=(alvo.mention + random.choice(ENTROSAS_IMAGES)))
     except discord.HTTPException:
         logger.exception("Erro ao tentar larpar o entrosa.")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui larpar ele " "O pq eu n sei...",
+                "❌ Não consegui larpar ele " " O pq eu n sei...",
                 ephemeral=True,
             )
 
@@ -468,13 +524,13 @@ async def larp(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(content=random.choice(LARP_IMAGES))
+        await interaction.response.send_message(content=(alvo.mention + random.choice(LARP_IMAGES)))
     except discord.HTTPException:
         logger.exception("Erro ao tentar larpar")
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui larpar" "O pq eu n sei...",
+                "❌ Não consegui larpar" " O pq eu n sei...",
                 ephemeral=True,
             )
 
@@ -647,7 +703,7 @@ async def fofoca(
 
 @bot.tree.command(
     name="noticia",
-    description="Conte uma fofoca",
+    description="Conte uma noticia",
 )
 async def noticia(
     interaction: discord.Interaction,
@@ -714,7 +770,7 @@ async def universo(
 
     situação = random.choice(UNIVERSO_SITUAÇÃO)
 
-    resposta = f"Em um universo {tamanho} paralelo, {rei} {situação} {pessoas}"
+    resposta = f"Em um universo ({tamanho}) paralelo, {rei} {situação} {pessoas}"
 
     try:
         await interaction.response.send_message(
@@ -725,7 +781,7 @@ async def universo(
 
         if not interaction.response.is_done():
             await interaction.response.send_message(
-                "❌ Não consegui montar um universo" "O HTTP zuo no bagulho",
+                "❌ Não consegui montar um universo" " O HTTP zuo no bagulho",
                 ephemeral=True,
             )
 
@@ -868,7 +924,18 @@ async def daily(
 async def loteria(
     interaction: discord.Interaction,
 ):
-    resposta = f"PARABÉNS {interaction.user.mention}, você ACABA de GANHAR: R${random.randint(0, 16700000)} E {random.choice(PRIZES)}!"
+
+    premio = random.choice(["zuado", "ferrado"])
+
+    if premio == "zuado":
+        final = random.choice(ZPRIZES)
+        reação = "Boa mlk!"
+
+    else:
+        final = random.choice(FPRIZES)
+        reação = "Se ferro otário kakakakakakakakak"
+    
+    resposta = f"PARABÉNS {interaction.user.mention}, você ACABA de GANHAR {final}! {reação}"
 
     try:
         await interaction.response.send_message(
@@ -998,13 +1065,9 @@ async def dado(
 )
 async def advinhar(
     interaction: discord.Interaction,
-    número: int | None = None,
+    número: int,
 ):
-
-    if número == None:
-        número = 6
-
-    resposta = "Perdeu otário akakakakaka, eu tinha pensado em " + str(número + 7)
+    resposta = "Perdeu otário akakakakaka, eu tinha pensado em " + str(número + random.randint(-50, 50))
 
     try:
         await interaction.response.send_message(
