@@ -86,3 +86,7 @@ ENTROSA_TRIGGERS = ["entrosa", "entroso", "entrosou", "entrosei"]
 LARP_TRIGGERS = ["larp", "larpar", "larpei", "larpo"]
 
 CALABRESO_TRIGGERS = ["calabreso", "calabresa", "calma", "calabresudo", "calabresanha"]
+
+ABSOLUTE_TRIGGERS = ["absolute cinema"]
+
+DENTO_TRIGGERS = ["ai dento", "ai dentro", "dento"]

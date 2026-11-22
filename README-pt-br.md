@@ -16,43 +16,36 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 
 ## Resenhas disponíveis
 
-| Tipo    | Nome         | Ação                                                       |
-| ------- | ------------ | ---------------------------------------------------------- |
-| Trigger | 67           | Responde mensagens relacionadas a 67 com um gif            |
-| Trigger | Resenha      | Responde mensagens relacionadas a 'resenha' com um gif     |
-| Trigger | Calabreso    | Responde mensagens relacionadas a 'calabreso' com um gif   |
-| Trigger | Cem reais    | Responde mensagens relacionadas a '100 reais' com um vídeo |
-| Trigger | JE           | Responde mensagens relacionadas a JE com uma música        |
-| Trigger | Devagar Pai  | Responde mensagens relacionadas a 'devagar' com um vídeo   |
-| Trigger | Entrosa      | Responde mensagens relacionadas a 'entrosa' com uma imagem |
-| Trigger | Larp         | Responde mensagens relacionadas a 'larp' com uma imagem    |
-| Comando | /sofrer      | Toca uma do periclão, pode marcar alguém                   |
-| Comando | /filme       | Aleatoriza um filme                                        |
-| Comando | /series      | Aleatoriza uma série                                       |
-| Comando | /luck        | Aleatoriza uma frase                                       |
-| Comando | /roast       | Zoa alguém, pode marcar                                    |
-| Comando | /enemys      | Marca quem não tem inimigos                                |
-| Comando | /gado        | Avalia quão gado alguém é                                  |
-| Comando | /skill-issue | Avalia se foi skill-issue                                  |
-| Comando | /fofoca      | Conta uma fofoca                                           |
-| Comando | /trending    | Puxa os 10 melhores repos do Github                        |
-| Comando | /entrosa     | Uma arma contra os entrosas                                |
-| Comando | /larp        | Larpe alguém                                               |
-| Comando | /avaliar     | Avalia quão resenha algo é                                 |
-| Comando | /universo    | Monte um universo absurdo                                  |
-| Comando | /caraoucoroa | Jogar cara ou coroa                                        |
-| Comando | /dado        | Joga um dado, pode escolher número de faces                |
-| Comando | /advinhar    | Joga o jogo de advinhar que número estou pensando          |
-| Comando | /daily       | Uma resenha baseada no dia                                 |
-| Comando | /aura        | Avalia quanta aura alguém tem                              |
-| Comando | /curriculum  | Gera o currículo do membro                                 |
-| Comando | /noticia     | Faz notícias absurdas dos membros do servidor              |
-| Comando | /advogado    | _"Better Call Resenhudo!"_                                 |
-| Comando | /quiz        | Um quiz simples                                            |
-| Comando | /8ball       | A clássica bola oito                                       |
-| Comando | /canon       | Veja se algo é canon ou filler                             |
-| Comando | /vocêprefere | Um simples jogo de você prefere                            |
-| Comando | /kind        | Uma frase gentil                                           |
+| Nome         | Ação                                                        |
+| ------------ | ----------------------------------------------------------- |
+| Trigger      | Responde mensagens relacionadas a certos tipos de conteúdos |
+| /sofrer      | Toca uma do periclão, pode marcar alguém                    |
+| /filme       | Aleatoriza um filme                                         |
+| /series      | Aleatoriza uma série                                        |
+| /luck        | Aleatoriza uma frase                                        |
+| /roast       | Zoa alguém, pode marcar                                     |
+| /enemys      | Marca quem não tem inimigos                                 |
+| /gado        | Avalia quão gado alguém é                                   |
+| /skill-issue | Avalia se foi skill-issue                                   |
+| /fofoca      | Conta uma fofoca                                            |
+| /trending    | Puxa os 10 melhores repos do Github                         |
+| /entrosa     | Uma arma contra os entrosas                                 |
+| /larp        | Larpe alguém                                                |
+| /avaliar     | Avalia quão resenha algo é                                  |
+| /universo    | Monte um universo absurdo                                   |
+| /caraoucoroa | Jogar cara ou coroa                                         |
+| /dado        | Joga um dado, pode escolher número de faces                 |
+| /advinhar    | Joga o jogo de advinhar que número estou pensando           |
+| /daily       | Uma resenha baseada no dia                                  |
+| /aura        | Avalia quanta aura alguém tem                               |
+| /curriculum  | Gera o currículo do membro                                  |
+| /noticia     | Faz notícias absurdas dos membros do servidor               |
+| /advogado    | _"Better Call Resenhudo!"_                                  |
+| /quiz        | Um quiz simples                                             |
+| /8ball       | A clássica bola oito                                        |
+| /canon       | Veja se algo é canon ou filler                              |
+| /vocêprefere | Um simples jogo de você prefere                             |
+| /kind        | Uma frase gentil                                            |
 
 ## Arquitetura
 

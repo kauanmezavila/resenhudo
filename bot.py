@@ -127,6 +127,14 @@ async def on_message(message: discord.Message):
             if random.random() < 0.85 and GIFS_RESENHA:
                 await message.reply(random.choice(GIFS_RESENHA))
 
+        elif any(trigger.lower() in texto for trigger in ABSOLUTE_TRIGGERS):
+            if random.random() < 0.85 and GIFS_ABSOLUTE:
+                await message.reply(random.choice(GIFS_ABSOLUTE))
+
+        elif any(trigger.lower() in texto for trigger in DENTO_TRIGGERS):
+            if random.random() < 0.85 and GIFS_DENTO:
+                await message.reply(random.choice(GIFS_DENTO))     
+
         elif any(trigger.lower() in texto for trigger in ENTROSA_TRIGGERS):
             if random.random() < 0.85 and ENTROSAS_IMAGES:
                 await message.reply(random.choice(ENTROSAS_IMAGES))
@@ -165,6 +173,27 @@ async def on_message(message: discord.Message):
                         DEVAGAR_VIDEO,
                     )
 
+        elif "damn" in texto:
+            if random.random() < 0.85:
+                await message.reply("Pequeno criolo pensa ser americano 🙏")
+
+        elif "sigma" in texto:
+            if random.random() < 0.85:
+                await message.reply("q frasinha de entrosa é essa?")
+
+        elif "lá ele" in texto or "la ele" in texto:
+            if random.random() < 0.85:
+                await message.reply("AI DENTU")
+
+        elif "q bot é esse" in texto or "q bot e esse" in texto:
+            await message.reply("O msm q tava com tua mae ontem")
+
+        elif "opa" in texto:
+            await message.reply("slv irm")
+
+        elif "gap" in texto:
+            await message.reply("TOMO GAP SECO SECO SECO filho")
+                
     except discord.HTTPException:
         logger.exception("Calma rapaziada, deu red aqui.")
 

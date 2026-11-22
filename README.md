@@ -20,43 +20,36 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 
 ## Avaliable resenhas
 
-| Tipo    | Nome         | Ação                                                |
-| ------- | ------------ | --------------------------------------------------- |
-| Trigger | 67           | Answer messages related to 67 with a gif            |
-| Trigger | Resenha      | Answer messages related to 'resenha' with a gif     |
-| Trigger | Calabreso    | Answer messages related to 'calabreso' with a gif   |
-| Trigger | Cem reais    | Answer messages related to '100 reais' with a video |
-| Trigger | JE           | Answer messages related to JE with a music          |
-| Trigger | Devagar Pai  | Answer messages related to 'devagar' with a video   |
-| Trigger | Entrosa      | Answer messages related to 'entrosa' with a image   |
-| Trigger | Larp         | Answer messages related to 'larp' with a image      |
-| Command | /sofrer      | Play on music from Péricles, can mark someone       |
-| Command | /filme       | Randomize a film                                    |
-| Command | /series      | Randomize a serie                                   |
-| Command | /luck        | Randomize a phrase                                  |
-| Command | /roast       | Roast someone, can mark someone                     |
-| Command | /enemys      | Mark someone that doens't have enemies              |
-| Command | /gado        | Judges how much someone is simp                     |
-| Command | /skill-issue | Judges if something was a skill-issue               |
-| Command | /fofoca      | Tells an absurd gossip                              |
-| Command | /trending    | Show the top 10 repos from Github                   |
-| Command | /entrosa     | A weapon agains't the entrosas                      |
-| Command | /larp        | Larp someone                                        |
-| Command | /avaliar     | Judges how much something is                        |
-| Command | /universo    | Build a absurd universe                             |
-| Command | /caraoucoroa | Play head or tails                                  |
-| Command | /dado        | Play a dice, can choss number of faces              |
-| Command | /advinhar    | Play the "Guess the number i am thinking"           |
-| Command | /daily       | A resenha based on the day                          |
-| Command | /aura        | Judges hou much aura someone have                   |
-| Command | /curriculum  | Generates a Curriculum Vitae of someone             |
-| Command | /noticia     | Makes absurd news about the server members          |
-| Command | /advogado    | _"Better Call Resenhudo!"_                          |
-| Command | /quiz        | A simple quiz                                       |
-| Command | /8ball       | The classic 8 ball oracle                           |
-| Command | /canon       | Judges if something is canon or filler              |
-| Command | /vocêprefere | A simple would you rather game                      |
-| Command | /kind        | A really kind phrase                                |
+| Nome         | Ação                                            |
+| ------------ | ----------------------------------------------- |
+| Trigger      | Answer messsages with certain types of contents |
+| /sofrer      | Play on music from Péricles, can mark someone   |
+| /filme       | Randomize a film                                |
+| /series      | Randomize a serie                               |
+| /luck        | Randomize a phrase                              |
+| /roast       | Roast someone, can mark someone                 |
+| /enemys      | Mark someone that doens't have enemies          |
+| /gado        | Judges how much someone is simp                 |
+| /skill-issue | Judges if something was a skill-issue           |
+| /fofoca      | Tells an absurd gossip                          |
+| /trending    | Show the top 10 repos from Github               |
+| /entrosa     | A weapon agains't the entrosas                  |
+| /larp        | Larp someone                                    |
+| /avaliar     | Judges how much something is                    |
+| /universo    | Build a absurd universe                         |
+| /caraoucoroa | Play head or tails                              |
+| /dado        | Play a dice, can choss number of faces          |
+| /advinhar    | Play the "Guess the number i am thinking"       |
+| /daily       | A resenha based on the day                      |
+| /aura        | Judges hou much aura someone have               |
+| /curriculum  | Generates a Curriculum Vitae of someone         |
+| /noticia     | Makes absurd news about the server members      |
+| /advogado    | _"Better Call Resenhudo!"_                      |
+| /quiz        | A simple quiz                                   |
+| /8ball       | The classic 8 ball oracle                       |
+| /canon       | Judges if something is canon or filler          |
+| /vocêprefere | A simple would you rather game                  |
+| /kind        | A really kind phrase                            |
 
 ## Architecture
 
