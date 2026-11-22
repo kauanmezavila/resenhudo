@@ -14,10 +14,7 @@ class QuizView(discord.ui.View):
         self.answered = False
 
         for index, option in enumerate(question["options"]):
-            button = discord.ui.Button(
-                label=option,
-                style=discord.ButtonStyle.primary
-            )
+            button = discord.ui.Button(label=option, style=discord.ButtonStyle.primary)
 
             button.callback = self.create_callback(index)
             self.add_item(button)
@@ -28,8 +25,7 @@ class QuizView(discord.ui.View):
 
             if self.answered:
                 await interaction.response.send_message(
-                    "Essa pergunta já foi respondida!",
-                    ephemeral=True
+                    "Essa pergunta já foi respondida!", ephemeral=True
                 )
                 return
 
@@ -38,19 +34,14 @@ class QuizView(discord.ui.View):
             if index == self.question["answer"]:
                 result = "Acertou! 🎉"
             else:
-                correct = self.question["options"][
-                    self.question["answer"]
-                ]
+                correct = self.question["options"][self.question["answer"]]
                 result = f"Errou otário; A resposta era **{correct}**."
 
             for item in self.children:
                 if isinstance(item, discord.ui.Button):
                     item.disabled = True
 
-            await interaction.response.edit_message(
-                content=result,
-                view=self
-            )
+            await interaction.response.edit_message(content=result, view=self)
 
         return callback
 
@@ -62,16 +53,12 @@ class QuizView(discord.ui.View):
 
 def setup_quiz(bot):
 
-    @bot.tree.command(
-        name="quiz",
-        description="Responda a um quiz aleatório!"
-    )
+    @bot.tree.command(name="quiz", description="Responda a um quiz aleatório!")
     async def quiz(interaction: discord.Interaction):
 
         if not QUIZZES:
             await interaction.response.send_message(
-                "Não existem perguntas cadastradas!",
-                ephemeral=True
+                "Não existem perguntas cadastradas!", ephemeral=True
             )
             return
 
@@ -80,14 +67,9 @@ def setup_quiz(bot):
         embed = discord.Embed(
             title="🌽 Show do grande milho",
             description=question["question"],
-            color=discord.Color.blurple()
+            color=discord.Color.blurple(),
         )
 
-        embed.set_footer(
-            text=f"Categoria: {question['category']}"
-        )
+        embed.set_footer(text=f"Categoria: {question['category']}")
 
-        await interaction.response.send_message(
-            embed=embed,
-            view=QuizView(question)
-        )
+        await interaction.response.send_message(embed=embed, view=QuizView(question))

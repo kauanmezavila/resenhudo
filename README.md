@@ -52,6 +52,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | /kind        | A really kind phrase                            |
 | /alibi       | Get an alibi                                    |
 | /sola        | See if someone can beat Saitama                 |
+| /days        | How much days till the year end                 |
 
 ## Architecture
 

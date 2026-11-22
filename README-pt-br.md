@@ -48,6 +48,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | /kind        | Uma frase gentil                                            |
 | /alibi       | Consiga um alibi                                            |
 | /sola        | Descubra se alguém sola o Saitama                           |
+| /days        | Números de dias até o ano acabar                            |
 
 ## Arquitetura
 

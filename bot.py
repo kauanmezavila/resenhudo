@@ -3,8 +3,8 @@ import random
 import logging
 import requests
 import subprocess
-import asyncio
 from pathlib import Path
+from datetime import date
 
 import discord
 from dotenv import load_dotenv
@@ -133,7 +133,7 @@ async def on_message(message: discord.Message):
 
         elif any(trigger.lower() in texto for trigger in DENTO_TRIGGERS):
             if random.random() < 0.85 and GIFS_DENTO:
-                await message.reply(random.choice(GIFS_DENTO))     
+                await message.reply(random.choice(GIFS_DENTO))
 
         elif any(trigger.lower() in texto for trigger in ENTROSA_TRIGGERS):
             if random.random() < 0.85 and ENTROSAS_IMAGES:
@@ -193,7 +193,7 @@ async def on_message(message: discord.Message):
 
         elif "gap" in texto:
             await message.reply("TOMO GAP SECO SECO SECO filho")
-                
+
     except discord.HTTPException:
         logger.exception("Calma rapaziada, deu red aqui.")
 
@@ -243,6 +243,7 @@ async def luck(interaction: discord.Interaction):
         ephemeral=True,
     )
 
+
 @bot.tree.command(
     name="kind",
     description="Uma frase gentil :)",
@@ -271,6 +272,7 @@ async def kind(interaction: discord.Interaction):
         texto,
         ephemeral=True,
     )
+
 
 @bot.tree.command(
     name="vocêprefere",
@@ -528,7 +530,9 @@ async def entrosa(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(content=(alvo.mention + random.choice(ENTROSAS_IMAGES)))
+        await interaction.response.send_message(
+            content=(alvo.mention + random.choice(ENTROSAS_IMAGES))
+        )
     except discord.HTTPException:
         logger.exception("Erro ao tentar larpar o entrosa.")
 
@@ -553,7 +557,9 @@ async def larp(
     alvo = user or interaction.user
 
     try:
-        await interaction.response.send_message(content=(alvo.mention + random.choice(LARP_IMAGES)))
+        await interaction.response.send_message(
+            content=(alvo.mention + random.choice(LARP_IMAGES))
+        )
     except discord.HTTPException:
         logger.exception("Erro ao tentar larpar")
 
@@ -963,8 +969,10 @@ async def loteria(
     else:
         final = random.choice(FPRIZES)
         reação = "Se ferro otário kakakakakakakakak"
-    
-    resposta = f"PARABÉNS {interaction.user.mention}, você ACABA de GANHAR {final}! {reação}"
+
+    resposta = (
+        f"PARABÉNS {interaction.user.mention}, você ACABA de GANHAR {final}! {reação}"
+    )
 
     try:
         await interaction.response.send_message(
@@ -1002,6 +1010,7 @@ async def advogado(
                 ephemeral=True,
             )
 
+
 @bot.tree.command(
     name="canon",
     description="Veja se algo é canon ou filler",
@@ -1023,6 +1032,7 @@ async def canon(
                 "❌ Não consegui pensar em um número",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="alibi",
@@ -1051,6 +1061,7 @@ async def alibi(
                 ephemeral=True,
             )
 
+
 @bot.tree.command(
     name="sola",
     description="Descubra se o Saitama sola alguém",
@@ -1077,6 +1088,36 @@ async def sola(
                 "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
                 ephemeral=True,
             )
+
+
+@bot.tree.command(
+    name="days",
+    description="Descubra quantos dias faltam para acabar o ano",
+)
+async def days(
+    interaction: discord.Interaction,
+):
+
+    hoje = date.today()
+
+    fim_do_ano = date(hoje.year, 12, 31)
+
+    dias_restantes = (fim_do_ano - hoje).days
+
+    resposta = f"Faltam *{dias_restantes}* para acabar o ano!"
+
+    try:
+        await interaction.response.send_message(content=resposta)
+
+    except discord.HTTPException:
+        logger.exception("Erro ao avaliar usuário")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
+                ephemeral=True,
+            )
+
 
 #
 # GAMES RESENHUDOS
@@ -1150,7 +1191,9 @@ async def advinhar(
     interaction: discord.Interaction,
     número: int,
 ):
-    resposta = "Perdeu otário akakakakaka, eu tinha pensado em " + str(número + random.randint(-50, 50))
+    resposta = "Perdeu otário akakakakaka, eu tinha pensado em " + str(
+        número + random.randint(-50, 50)
+    )
 
     try:
         await interaction.response.send_message(
@@ -1164,6 +1207,7 @@ async def advinhar(
                 "❌ Não consegui pensar em um número",
                 ephemeral=True,
             )
+
 
 @bot.tree.command(
     name="8ball",
@@ -1187,25 +1231,26 @@ async def bolaoito(
                 ephemeral=True,
             )
 
+
 #
 # REAÇÕES
 #
 
+
 @bot.tree.command(name="reagir", description="Reaja a alguém!")
-@app_commands.describe(
-    usuario="Quem vai receber a reação",
-    tipo="Tipo de reação"
+@app_commands.describe(usuario="Quem vai receber a reação", tipo="Tipo de reação")
+@app_commands.choices(
+    tipo=[
+        app_commands.Choice(name="Abraçar", value="hug"),
+        app_commands.Choice(name="Piscar", value="wink"),
+        app_commands.Choice(name="Dançar", value="dance"),
+        app_commands.Choice(name="Dar tapinha", value="pat"),
+    ]
 )
-@app_commands.choices(tipo=[
-    app_commands.Choice(name="Abraçar", value="hug"),
-    app_commands.Choice(name="Piscar", value="wink"),
-    app_commands.Choice(name="Dançar", value="dance"),
-    app_commands.Choice(name="Dar tapinha", value="pat"),
-])
 async def reagir(
     interaction: discord.Interaction,
     usuario: discord.Member,
-    tipo: app_commands.Choice[str]
+    tipo: app_commands.Choice[str],
 ):
 
     await interaction.response.defer()
@@ -1215,26 +1260,25 @@ async def reagir(
             images = await client.get_image(tipo.value)
 
         if not images:
-            await interaction.followup.send("Não encontrei uma imagem para essa reação.")
+            await interaction.followup.send(
+                "Não encontrei uma imagem para essa reação."
+            )
             return
 
         embed = discord.Embed(
             description=f"{interaction.user.mention} reagiu a {usuario.mention}!"
         )
 
-        embed.set_image(url=images.url) # type: ignore
+        embed.set_image(url=images.url)  # type: ignore
 
         await interaction.followup.send(embed=embed)
 
     except APIError as error:
-        await interaction.followup.send(
-            f"Erro na API: {error.code}"
-        )
+        await interaction.followup.send(f"Erro na API: {error.code}")
 
     except ClientError:
-        await interaction.followup.send(
-            "Não consegui conectar ao Nekos.best."
-        )
+        await interaction.followup.send("Não consegui conectar ao Nekos.best.")
+
 
 if __name__ == "__main__":
     if TOKEN:
