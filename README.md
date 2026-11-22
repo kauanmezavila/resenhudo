@@ -67,6 +67,24 @@ The bot uses discord.py, and, the code uses a modular architecture:
 - [calcs.py](https://github.com/kauanmezavila/resenhudo/blob/main/calcs.py) calculations for actions
 - [quiz.py](https://github.com/kauanmezavila/resenhudo/blob/main/quiz.py) quiz action
 
+## How to host
+
+### Self host
+
+After cloning the repo, just run
+
+```bash
+python bot.py
+```
+
+### Bot-Hosting (yes, pretty SaaS startup)
+
+1. Go to [Bot-Hosting](https://bot-hosting.net/)
+2. Follow the steps to create a application
+3. On the Github confs page, simple set the repo `kauanmezavila/resenhudo`
+4. Don't forget to set on initialization confs the file `bot.py`
+5. Run it, don't forget to update the pushs AND don't forget to renew the Free tier plan
+
 ### **How the bot can stay 24/7 on free tier Render?**
 
 A little knowledge for you broked friend indie hacker (like me):
