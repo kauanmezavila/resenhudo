@@ -1024,6 +1024,60 @@ async def canon(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="alibi",
+    description="Gere um alibi",
+)
+@app_commands.describe(
+    user="Quem vai receber o alibi",
+)
+async def alibi(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    resposta = f"{alvo.mention} {random.choice(ALIBIS)}"
+
+    try:
+        await interaction.response.send_message(content=resposta)
+
+    except discord.HTTPException:
+        logger.exception("Erro ao avaliar usuário")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
+                ephemeral=True,
+            )
+
+@bot.tree.command(
+    name="sola",
+    description="Descubra se o Saitama sola alguém",
+)
+@app_commands.describe(
+    user="Quem vai tentar solar o Saitama",
+)
+async def sola(
+    interaction: discord.Interaction,
+    user: discord.Member | None = None,
+):
+    alvo = user or interaction.user
+
+    resposta = f"**Saitama x {alvo.mention}**\n\n **SAITAMA** SOLA :white_check_mark:"
+
+    try:
+        await interaction.response.send_message(content=resposta)
+
+    except discord.HTTPException:
+        logger.exception("Erro ao avaliar usuário")
+
+        if not interaction.response.is_done():
+            await interaction.response.send_message(
+                "❌ Não consegui avaliar ele. O HTTP zuou no bagulho.",
+                ephemeral=True,
+            )
+
 #
 # GAMES RESENHUDOS
 #

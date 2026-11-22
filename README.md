@@ -50,6 +50,8 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | /canon       | Judges if something is canon or filler          |
 | /vocêprefere | A simple would you rather game                  |
 | /kind        | A really kind phrase                            |
+| /alibi       | Get an alibi                                    |
+| /sola        | See if someone can beat Saitama                 |
 
 ## Architecture
 

@@ -46,6 +46,8 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | /canon       | Veja se algo é canon ou filler                              |
 | /vocêprefere | Um simples jogo de você prefere                             |
 | /kind        | Uma frase gentil                                            |
+| /alibi       | Consiga um alibi                                            |
+| /sola        | Descubra se alguém sola o Saitama                           |
 
 ## Arquitetura
 

@@ -293,6 +293,12 @@ ADVOGADO_ARGS = [
     "convoco adiamento devido o jogo da Libertadores que ocorrerá daqui 5 minutos"
 ]
 
+ALIBIS = [
+    "eu tava com ele na hr, ficamos juntos o tempo todo",
+    "tem provas?",
+    "eu e ele tava junto, impossivel ter feito isso",
+]
+
 
 QUIZZES = [
     # =========================
