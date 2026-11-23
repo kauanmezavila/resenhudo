@@ -27,7 +27,6 @@ TOKEN = os.getenv("TOKEN")
 BASE_DIR = Path(__file__).resolve().parent
 CEMPILA_VIDEO_PATH = BASE_DIR / "media" / "100Reais????.mp4"
 SOFRER_MUSIC = BASE_DIR / "media" / "ate-que-durou.mp3"
-JE_MUSIC = BASE_DIR / "media" / "je.wav"
 DEVAGAR_VIDEO = BASE_DIR / "media" / "CalmaPaizin.mp4"
 TORFIN_MUSIC = (
     BASE_DIR / "media" / "Aruarian Dance - Nujabes Piano Cover + Sheet Music.mp3"
@@ -38,7 +37,6 @@ LISTONA = (
     + RESENHA_TRIGGERS
     + CEMPILA_TRIGGERS
     + DEVAGAR_TRIGGERS
-    + JE_TRIGGERS
     + LARP_TRIGGERS
     + ENTROSA_TRIGGERS
 )
@@ -151,16 +149,6 @@ async def on_message(message: discord.Message):
                     logger.error(
                         "Vídeo não encontrado: %s",
                         CEMPILA_VIDEO_PATH,
-                    )
-
-        elif any(trigger.lower() in texto for trigger in JE_TRIGGERS):
-            if random.random() < 0.85:
-                if JE_MUSIC.is_file():
-                    await message.reply(file=discord.File(str(JE_MUSIC)))
-                else:
-                    logger.error(
-                        "Áudio não encontrado: %s",
-                        JE_MUSIC,
                     )
 
         elif any(trigger.lower() in texto for trigger in DEVAGAR_TRIGGERS):

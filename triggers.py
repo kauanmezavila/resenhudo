@@ -77,8 +77,6 @@ CEMPILA_TRIGGERS = [
     "cem pila",
 ]
 
-JE_TRIGGERS = ["jeffrey", "epstein", "jeffrey epstein"]
-
 DEVAGAR_TRIGGERS = ["devagar", "devagar pai"]
 
 ENTROSA_TRIGGERS = ["entrosa", "entroso", "entrosou", "entrosei"]
