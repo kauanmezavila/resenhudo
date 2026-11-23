@@ -42,7 +42,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | /advinhar    | Play the "Guess the number i am thinking"       |
 | /daily       | A resenha based on the day                      |
 | /aura        | Judges hou much aura someone have               |
-| /curriculum  | Generates a Curriculum Vitae of someone         |
+| /patch       | Generates a Patch Notes of someone              |
 | /noticia     | Makes absurd news about the server members      |
 | /advogado    | _"Better Call Resenhudo!"_                      |
 | /quiz        | A simple quiz                                   |
