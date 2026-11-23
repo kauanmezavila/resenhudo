@@ -1289,6 +1289,35 @@ async def rps(interaction: discord.Interaction):
         ephemeral=True,
     )
 
+@bot.tree.command(
+    name="ditado",
+    description="Um ditado",
+)
+async def ditado(interaction: discord.Interaction):
+    def fortune():
+        url = "https://ditado-api.fly.dev/ditados/random"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["content"], data["meaning"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    frase, sentido = fortune()
+
+    texto = f"""*{frase}*\n> {sentido}"""
+
+    await interaction.response.send_message(
+        texto,
+        ephemeral=True,
+    )
+
 #
 # REAÇÕES
 #

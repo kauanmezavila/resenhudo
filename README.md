@@ -55,6 +55,7 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | /days        | How much days till the year end                 |
 | /8ballv2     | The AMERICAN 8 Ball                             |
 | /rps         | Rock, Paper and Scissors                        |
+| /ditado      | An phrase                                       |
 
 ## Architecture
 

@@ -51,6 +51,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | /days        | Números de dias até o ano acabar                            |
 | /8ballv2     | A Bola Oito AMERICANA                                       |
 | /rps         | Predra, Papel e Tesoura                                     |
+| /ditado      | Um ditado                                                   |
 
 ## Arquitetura
 
