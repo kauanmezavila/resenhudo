@@ -38,7 +38,7 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | /advinhar    | Joga o jogo de advinhar que número estou pensando           |
 | /daily       | Uma resenha baseada no dia                                  |
 | /aura        | Avalia quanta aura alguém tem                               |
-| /patch  | Gera um Patch Notes de alguém                                  |
+| /patch       | Gera um Patch Notes de alguém                               |
 | /noticia     | Faz notícias absurdas dos membros do servidor               |
 | /advogado    | _"Better Call Resenhudo!"_                                  |
 | /quiz        | Um quiz simples                                             |
@@ -49,6 +49,8 @@ Instale no seu servidor clicando [aqui](https://discord.com/oauth2/authorize?cli
 | /alibi       | Consiga um alibi                                            |
 | /sola        | Descubra se alguém sola o Saitama                           |
 | /days        | Números de dias até o ano acabar                            |
+| /8ballv2     | A Bola Oito AMERICANA                                       |
+| /rps         | Predra, Papel e Tesoura                                     |
 
 ## Arquitetura
 

@@ -53,6 +53,8 @@ Install in your server clicking [here](https://discord.com/oauth2/authorize?clie
 | /alibi       | Get an alibi                                    |
 | /sola        | See if someone can beat Saitama                 |
 | /days        | How much days till the year end                 |
+| /8ballv2     | The AMERICAN 8 Ball                             |
+| /rps         | Rock, Paper and Scissors                        |
 
 ## Architecture
 

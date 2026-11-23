@@ -1235,6 +1235,59 @@ async def bolaoito(
                 ephemeral=True,
             )
 
+@bot.tree.command(
+    name="8ballv2",
+    description="A clássica Bola Oito Americana",
+)
+async def bolaoitov2(interaction: discord.Interaction):
+    def fortune():
+        url = "https://dumbapis.com/magic-8-ball"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["answer"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    texto = f"""Aparece na Bola 8 Americana: [*{fortune()}*] \n> (vc entende prr nenhuma pq tu n fala inglês)"""
+
+    await interaction.response.send_message(
+        texto,
+        ephemeral=True,
+    )
+
+@bot.tree.command(
+    name="rps",
+    description="Predra, Papel e Tesoura",
+)
+async def rps(interaction: discord.Interaction):
+    def fortune():
+        url = "https://dumbapis.com/rps"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            return data["result"]
+
+        except requests.RequestException as e:
+            return f"Erro ao consultar a API: {e}"
+        except (ValueError, KeyError):
+            return "Erro: resposta inválida da API."
+
+    texto = f"""**{fortune()}!**"""
+
+    await interaction.response.send_message(
+        texto,
+        ephemeral=True,
+    )
 
 #
 # REAÇÕES
